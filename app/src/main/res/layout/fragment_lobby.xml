@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LobbyFragment"
+    android:background="@drawable/background">
+
+    <ImageButton
+        android:id="@+id/rules"
+        android:layout_width="313dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="647dp"
+        android:background="@drawable/Rules"
+        android:contentDescription="@string/todo" />
+
+
+
+
+    <!-- Stats -->
+    <ImageButton
+        android:id="@+id/stats"
+        android:layout_width="313dp"
+        android:layout_height="54dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="576dp"
+        android:background="@drawable/Stats"
+        android:contentDescription="@string/todo" />
+
+
+
+
+    <!-- PlayW/Random -->
+    <ImageButton
+        android:id="@+id/playw_rando"
+        android:layout_width="313dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="505dp"
+        android:background="@drawable/Random"
+        android:contentDescription="@string/todo" />
+
+
+
+
+    <!-- PlayW/Friend -->
+    <ImageButton
+        android:id="@+id/playw_frien"
+        android:layout_width="313dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="434dp"
+        android:background="@drawable/Friend"
+        android:contentDescription="@string/todo" />
+
+
+
+
+    <!-- AddFriend -->
+    <ImageButton
+        android:id="@+id/addfriend"
+        android:layout_width="313dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="363dp"
+        android:background="@drawable/AddFriend"
+        android:contentDescription="@string/todo" />
+
+
+
+
+    <!-- SettingsButton -->
+    <ImageButton
+        android:id="@+id/settingsbut"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginLeft="333dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/tools-and-utensils"
+        android:contentDescription="@string/todo" />
+
+    <!-- rathaus-sonne-hp 2 -->
+
+
+
+
+    <!--<vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="1307dp"
+        android:height="812dp"
+        android:viewportWidth="1307"
+        android:viewportHeight="812"
+        >
+
+        <group>
+
+            <clip-path
+                android:pathData="M0 0H1307V812H0V0Z"
+                />
+
+        </group>
+
+    </vector>-->
+
+
+</FrameLayout>
