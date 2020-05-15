@@ -1,0 +1,2 @@
+rootProject.name='The Munich Quiz'
+include ':app'
