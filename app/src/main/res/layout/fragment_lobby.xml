@@ -23,9 +23,7 @@
         android:id="@+id/stats"
         android:layout_width="313dp"
         android:layout_height="54dp"
-        android:layout_alignParentLeft="true"
         android:layout_marginLeft="32dp"
-        android:layout_alignParentTop="true"
         android:layout_marginTop="576dp"
         android:background="@drawable/Stats"
         android:contentDescription="@string/todo" />
