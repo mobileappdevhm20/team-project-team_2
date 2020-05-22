@@ -15,29 +15,16 @@ class LobbyFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_lobby, container, false)
 
-//        button_settings.setOnClickListener {
-//
-//        }
-//
-//        button_addfriend.setOnClickListener {
-//
-//        }
-//
-//        button_playw_friend.setOnClickListener {
-//
-//        }
-//
-//        button_playw_random.setOnClickListener {
-//
-//        }
-//
-//        button_rules.setOnClickListener {
-//
-//        }
-//
-//        button_stats.setOnClickListener {
-//
-//        }
+        // TODO navigation to AddAFriend
+
+        // TODO navigation to PlayWFriend
+
+        // TODO navigation to PlayWRandom
+
+        // TODO navigation to Stats
+
+        // TODO navigation to Rules
+
     }
 
 }
