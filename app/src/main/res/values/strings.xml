@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">The Munich Quiz</string>
+    <string name="account">Account</string>
+    <string name="notifications">Notifications</string>
+    <string name="privacyandsecurity">Privacy and Security</string>
+    <string name="settings">
+
+Settings
+</string>
+
 </resources>

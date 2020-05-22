@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".settings">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="499dp"
+            android:layout_height="754dp"
+            app:srcCompat="@drawable/backgroundimage" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="324dp"
+            android:layout_height="472dp"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/settings"
+            android:layout_width="410dp"
+            android:layout_height="65dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center|top"
+            android:layout_marginLeft="154dp"
+            android:layout_marginTop="33dp"
+            android:gravity="top"
+            android:text="@string/settings"
+            android:textAppearance="@style/settings" />
+
+        <LinearLayout
+            android:layout_width="319dp"
+            android:layout_height="653dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_corner"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButton12"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:background="?android:attr/panelBackground"
+                app:srcCompat="@drawable/accountsettings" />
+
+            <ImageButton
+                android:id="@+id/imageButton9"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:background="?android:attr/panelBackground"
+                app:srcCompat="@drawable/notificationssettings" />
+
+            <Switch
+                android:id="@+id/soundswitch"
+                android:layout_width="319dp"
+                android:layout_height="39dp"
+                android:background="?android:attr/panelBackground"
+                android:text="             Sound"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/imageButton13"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:background="?android:attr/panelBackground"
+                app:srcCompat="@drawable/privacysettings" />
+
+            <ImageButton
+                android:id="@+id/imageButton14"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:background="?android:attr/panelBackground"
+                app:srcCompat="@drawable/help" />
+
+            <ImageButton
+                android:id="@+id/imageButton15"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:background="?android:attr/panelBackground"
+                app:srcCompat="@drawable/about" />
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton20"
+            android:layout_width="133dp"
+            android:layout_height="110dp"
+            android:background="@android:drawable/screen_background_light_transparent"
+            app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
