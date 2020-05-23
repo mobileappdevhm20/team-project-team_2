@@ -21,6 +21,11 @@
         />
 
     <View
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_arrow_back_black_24dp" />
+
+    <View
         android:layout_width="162dp"
         android:layout_height="180dp"
         android:layout_marginTop="140dp"
