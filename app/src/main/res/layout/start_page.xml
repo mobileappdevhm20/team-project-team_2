@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:adjustViewBounds="false"
         android:contentDescription="@string/background"
+        android:scrollX="-500dp"
         android:cropToPadding="false"
         android:scaleType="centerCrop"
         android:src="@drawable/background" />
