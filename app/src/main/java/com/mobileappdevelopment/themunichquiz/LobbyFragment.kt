@@ -14,7 +14,7 @@ class LobbyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_lobby, container, false)
-
+    // Change something
         // TODO navigation to AddAFriend
 
         // TODO navigation to PlayWFriend
