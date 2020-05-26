@@ -5,6 +5,6 @@
     <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
     <string name="background">background</string>
-
+    <string name="statistic">statistics</string>
     <string name="start">START</string>
 </resources>
