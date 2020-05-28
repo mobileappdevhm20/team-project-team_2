@@ -12,13 +12,13 @@
         android:scaleType="centerCrop"
         android:contentDescription="@string/background" />
 
-    <View
+    <ImageView
         android:id="@+id/logo"
         android:layout_width="323dp"
         android:layout_height="323dp"
-        android:layout_marginTop="?actionBarSize"
+        android:layout_marginTop="?android:attr/actionBarSize"
         android:background="@drawable/logo"
-        />
+        android:contentDescription="@string/logo" />
 
     <Button
         android:id="@+id/button_settings"
@@ -38,35 +38,35 @@
         <Button
             android:id="@+id/button_addfriend"
             android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/addfriend"
             android:layout_marginBottom="20dp" />
 
         <Button
             android:id="@+id/button_playw_friend"
             android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/friend"
             android:layout_marginBottom="20dp" />
 
         <Button
             android:id="@+id/button_playw_random"
             android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/random"
             android:layout_marginBottom="20dp" />
 
         <Button
             android:id="@+id/button_stats"
             android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/stats"
             android:layout_marginBottom="20dp" />
 
         <Button
             android:id="@+id/button_rules"
             android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/rules"
             android:layout_marginBottom="20dp" />
 
