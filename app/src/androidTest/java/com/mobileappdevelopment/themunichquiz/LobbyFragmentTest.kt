@@ -14,7 +14,6 @@ class LobbyFragmentTest {
     @Test
     fun testAddFriendButton() {
         val scenario = launchFragmentInContainer<LobbyFragment>()
-        assertTrue(false)
         onView(withId(R.id.button_addfriend))
             .perform(click())
     }
