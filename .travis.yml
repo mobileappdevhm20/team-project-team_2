@@ -29,7 +29,7 @@ before_script:
   - chmod +x gradlew
 
 script:
-  - ./gradlew assembleDebug
+  - ./gradlew assembleDebug connectedAndroidTest
 
 deploy:
   provider: releases
