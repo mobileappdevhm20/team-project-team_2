@@ -13,6 +13,8 @@ class ResultFragment : Fragment() {
         savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.login, container, false)
+
+
         return view
 
         // TODO buttonclicks

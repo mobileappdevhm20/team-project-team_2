@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/startFragment3">
+    <fragment
+        android:id="@+id/startFragment3"
+        android:name="com.mobileappdevelopment.themunichquiz.StartFragment"
+        android:label="start_page"
+        tools:layout="@layout/start_page" >
+        <action
+            android:id="@+id/action_startFragment3_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.LoginFragment"
+        android:label="login"
+        tools:layout="@layout/login" >
+        <action
+            android:id="@+id/action_loginFragment_to_lobbyFragment"
+            app:destination="@id/lobbyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lobbyFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.LobbyFragment"
+        android:label="fragment_lobby"
+        tools:layout="@layout/fragment_lobby" >
+        <action
+            android:id="@+id/action_lobbyFragment_to_rulesFragment"
+            app:destination="@id/rulesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.ResultFragment"
+        android:label="ResultFragment" />
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.RulesFragment"
+        android:label="rules"
+        tools:layout="@layout/rules" />
+</navigation>

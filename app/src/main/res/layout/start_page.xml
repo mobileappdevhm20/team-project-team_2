@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginFragment">
+    tools:context="com.mobileappdevelopment.themunichquiz.StartFragment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
 
 
         <Button
-            android:id="@+id/button_login"
+            android:id="@+id/button_start"
             android:layout_width="wrap_content"
             android:layout_height="?actionBarSize"
             android:layout_gravity="bottom"
