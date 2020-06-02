@@ -10,4 +10,7 @@
     <string name="rules">Rules</string>
     <string name="statistic">statistics</string>
     <string name="start">START</string>
+    <string name="stats">Stats</string>
+    <string name="rectangle">Rectangle</string>
+    <string name="statistics">STATISTICS</string>
 </resources>
