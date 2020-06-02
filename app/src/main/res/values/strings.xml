@@ -5,6 +5,8 @@
     <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
     <string name="background">background</string>
+    <string name="rules_text">Welcome to the Munich Quiz!\n\nHere are the rules:\n\n- you can play against one player\n\n-both players get the same questions\n\n- the player with the most correct answers wins the game\n\n- if the players have the same number of correct questions, both get a point\n\nEnjoy!</string>
+    <string name="rules">Rules</string>
     <string name="statistic">statistics</string>
     <string name="start">START</string>
     <string name="stats">Stats</string>
