@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LobbyFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/background"
+        />
+
+    <View
+        android:id="@+id/logo"
+        android:layout_width="323dp"
+        android:layout_height="323dp"
+        android:layout_marginTop="?actionBarSize"
+        android:background="@drawable/logo"
+        />
+
+    <ImageView
+        android:id="@+id/btn_capture_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:src="@drawable/rectangle"
+        android:contentDescription="@string/rectangle"
+        />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/ic_arrow_back_black_24dp"
+        />
+
+    <TextView
+        android:id="@+id/Playw_Friend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="45dp"
+        android:text="@string/choose_a_friend"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:gravity="top"
+        />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginStart="50dp"
+        android:src="@drawable/playwithafriend"
+        android:contentDescription="@string/stats"
+        />
+
+    <TextView
+        android:id="@+id/Playw_FriendText"
+        android:layout_width="285dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="276dp"
+        android:gravity="top"
+        />
+
+</FrameLayout>
