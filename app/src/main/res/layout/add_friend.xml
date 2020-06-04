@@ -28,6 +28,7 @@
         android:background="@drawable/ic_arrow_back_black_24dp" />
 
     <View
+        android:id="@+id/back_button"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
@@ -52,7 +53,7 @@
         android:padding="10dp" />
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/button_add"
         android:layout_gravity="bottom"
         android:layout_width="wrap_content"
         android:layout_height="?actionBarSize"
