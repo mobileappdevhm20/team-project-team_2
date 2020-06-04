@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.login.*
 import kotlinx.android.synthetic.main.login.view.*
+import kotlinx.android.synthetic.main.rules.*
 import kotlinx.android.synthetic.main.rules.view.*
 
 class RulesFragment : Fragment() {
