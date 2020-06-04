@@ -23,15 +23,18 @@ class LobbyFragment : Fragment() {
             view.findNavController().navigate(R.id.action_lobbyFragment_to_rulesFragment)
         }
 
-        // TODO navigation to AddAFriend
+        view.button_settings.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_statisticsFragment)
+        }
 
-        // TODO navigation to PlayWFriend
+        view.button_playw_friend.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_playWithFriendFragment)
+        }
+
+        // TODO navigation to AddAFriend
 
         // TODO navigation to PlayWRandom
 
-        // TODO navigation to Stats
-
-        // TODO navigation to Rules
         return view
     }
 

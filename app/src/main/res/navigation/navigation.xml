@@ -30,6 +30,12 @@
         <action
             android:id="@+id/action_lobbyFragment_to_rulesFragment"
             app:destination="@id/rulesFragment" />
+        <action
+            android:id="@+id/action_lobbyFragment_to_statisticsFragment"
+            app:destination="@id/statisticsFragment" />
+        <action
+            android:id="@+id/action_lobbyFragment_to_playWithFriendFragment"
+            app:destination="@id/playWithFriendFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -40,4 +46,12 @@
         android:name="com.mobileappdevelopment.themunichquiz.RulesFragment"
         android:label="rules"
         tools:layout="@layout/rules" />
+    <fragment
+        android:id="@+id/playWithFriendFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.PlayWithFriendFragment"
+        android:label="PlayWithFriendFragment" />
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.StatisticsFragment"
+        android:label="StatisticsFragment" />
 </navigation>
