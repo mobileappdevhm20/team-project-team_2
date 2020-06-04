@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.login.*
-import kotlinx.android.synthetic.main.login.view.*
+import kotlinx.android.synthetic.main.rules.*
+import kotlinx.android.synthetic.main.rules.view.*
 
 class RulesFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
