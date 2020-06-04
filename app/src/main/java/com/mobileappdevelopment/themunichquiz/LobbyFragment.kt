@@ -31,6 +31,10 @@ class LobbyFragment : Fragment() {
             view.findNavController().navigate(R.id.action_lobbyFragment_to_playWithFriendFragment)
         }
 
+        view.button_addfriend.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_addFriendFragment)
+        }
+
         // TODO navigation to AddAFriend
 
         // TODO navigation to PlayWRandom
