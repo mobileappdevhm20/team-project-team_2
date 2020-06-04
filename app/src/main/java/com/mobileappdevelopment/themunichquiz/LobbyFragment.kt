@@ -23,7 +23,7 @@ class LobbyFragment : Fragment() {
             view.findNavController().navigate(R.id.action_lobbyFragment_to_rulesFragment)
         }
 
-        view.button_settings.setOnClickListener { view ->
+        view.button_stats.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_lobbyFragment_to_statisticsFragment)
         }
 

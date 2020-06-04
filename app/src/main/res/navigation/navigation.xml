@@ -45,13 +45,27 @@
         android:id="@+id/rulesFragment"
         android:name="com.mobileappdevelopment.themunichquiz.RulesFragment"
         android:label="rules"
-        tools:layout="@layout/rules" />
+        tools:layout="@layout/rules" >
+        <action
+            android:id="@+id/action_rulesFragment_to_lobbyFragment"
+            app:destination="@id/lobbyFragment"
+            app:popUpTo="@id/lobbyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/playWithFriendFragment"
         android:name="com.mobileappdevelopment.themunichquiz.PlayWithFriendFragment"
-        android:label="PlayWithFriendFragment" />
+        android:label="PlayWithFriendFragment" >
+        <action
+            android:id="@+id/action_playWithFriendFragment_to_lobbyFragment"
+            app:destination="@id/lobbyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/statisticsFragment"
         android:name="com.mobileappdevelopment.themunichquiz.StatisticsFragment"
-        android:label="StatisticsFragment" />
+        android:label="StatisticsFragment" >
+        <action
+            android:id="@+id/action_statisticsFragment_to_lobbyFragment"
+            app:destination="@id/lobbyFragment"
+            app:popUpTo="@id/lobbyFragment" />
+    </fragment>
 </navigation>
