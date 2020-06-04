@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_loginFragment_to_lobbyFragment"
             app:destination="@id/lobbyFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment2"
+            app:destination="@id/signUpFragment2" />
     </fragment>
     <fragment
         android:id="@+id/lobbyFragment"
@@ -39,11 +42,25 @@
         <action
             android:id="@+id/action_lobbyFragment_to_addFriendFragment"
             app:destination="@id/addFriendFragment" />
+        <action
+            android:id="@+id/action_lobbyFragment_to_settingsFragment2"
+            app:destination="@id/settingsFragment2" />
+        <action
+            android:id="@+id/action_lobbyFragment_to_gamepage"
+            app:destination="@id/gamepage" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.mobileappdevelopment.themunichquiz.ResultFragment"
-        android:label="ResultFragment" />
+        android:label="ResultFragment" >
+        <action
+            android:id="@+id/action_resultFragment_to_statisticsFragment"
+            app:destination="@id/statisticsFragment" />
+        <action
+            android:id="@+id/action_resultFragment_to_lobbyFragment"
+            app:destination="@id/lobbyFragment"
+            app:popUpTo="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/rulesFragment"
         android:name="com.mobileappdevelopment.themunichquiz.RulesFragment"
@@ -53,6 +70,9 @@
             android:id="@+id/action_rulesFragment_to_lobbyFragment"
             app:destination="@id/lobbyFragment"
             app:popUpTo="@id/loginFragment" />
+        <action
+            android:id="@+id/action_rulesFragment_to_settingsFragment2"
+            app:destination="@id/settingsFragment2" />
     </fragment>
     <fragment
         android:id="@+id/playWithFriendFragment"
@@ -80,5 +100,38 @@
             android:id="@+id/action_addFriendFragment_to_lobbyFragment"
             app:destination="@id/lobbyFragment"
             app:popUpTo="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment2"
+        android:name="com.mobileappdevelopment.themunichquiz.SettingsFragment"
+        android:label="activity_settings"
+        tools:layout="@layout/activity_settings" >
+        <action
+            android:id="@+id/action_settingsFragment2_to_lobbyFragment"
+            app:destination="@id/lobbyFragment"
+            app:popUpTo="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment2"
+        android:name="com.mobileappdevelopment.themunichquiz.SignUpFragment"
+        android:label="activity_signup"
+        tools:layout="@layout/activity_signup" >
+        <action
+            android:id="@+id/action_signUpFragment2_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/startFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/gamepage"
+        android:name="com.mobileappdevelopment.themunichquiz.Gamepage"
+        android:label="activity_gamepage"
+        tools:layout="@layout/activity_gamepage" >
+        <action
+            android:id="@+id/action_gamepage_to_lobbyFragment"
+            app:destination="@id/lobbyFragment"
+            app:popUpTo="@id/settingsFragment2" />
+        <action
+            android:id="@+id/action_gamepage_to_resultFragment"
+            app:destination="@id/resultFragment" />
     </fragment>
 </navigation>

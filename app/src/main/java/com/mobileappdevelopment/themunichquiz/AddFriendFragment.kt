@@ -19,6 +19,10 @@ class AddFriendFragment : Fragment(){
         view.back_button.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_addFriendFragment_to_lobbyFragment)
         }
+
+        view.button_add.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_addFriendFragment_to_lobbyFragment)
+        }
         // TODO Button clicks
 
         return view

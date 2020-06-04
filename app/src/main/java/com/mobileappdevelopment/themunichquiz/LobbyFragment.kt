@@ -35,9 +35,13 @@ class LobbyFragment : Fragment() {
             view.findNavController().navigate(R.id.action_lobbyFragment_to_addFriendFragment)
         }
 
-        // TODO navigation to AddAFriend
+        view.button_settings.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_settingsFragment2)
+        }
 
-        // TODO navigation to PlayWRandom
+        view.button_playw_random.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_gamepage)
+        }
 
         return view
     }

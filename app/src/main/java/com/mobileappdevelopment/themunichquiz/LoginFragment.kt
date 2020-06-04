@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_lobby.view.*
 import kotlinx.android.synthetic.main.login.*
 import kotlinx.android.synthetic.main.login.view.*
@@ -36,10 +37,8 @@ class LoginFragment : Fragment() {
         }
 
         view.button_signup.setOnClickListener{ view ->
-            // TODO: Navigate to signup page
+            view.findNavController().navigate(R.id.action_loginFragment_to_signUpFragment2)
         }
-
-
 
         return view
     }

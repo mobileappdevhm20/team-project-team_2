@@ -24,7 +24,9 @@ class RulesFragment : Fragment() {
             view.findNavController().navigate(R.id.action_rulesFragment_to_lobbyFragment)
         }
 
-        // TODO Buttons navigation
+        view.button_settings.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_rulesFragment_to_settingsFragment2)
+        }
 
         return view
     }
