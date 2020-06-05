@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import kotlinx.android.synthetic.main.result.view.*
 
 class ResultFragment : Fragment() {
 
@@ -12,9 +14,15 @@ class ResultFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.login, container, false)
+        val view = inflater.inflate(R.layout.result, container, false)
+
+        view.button_statt.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_resultFragment_to_statisticsFragment)
+        }
+        view.back.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_resultFragment_to_lobbyFragment)
+        }
         return view
 
-        // TODO buttonclicks
     }
 }

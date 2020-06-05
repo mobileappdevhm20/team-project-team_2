@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.fragment_lobby.*
+import kotlinx.android.synthetic.main.fragment_lobby.view.*
 
 class LobbyFragment : Fragment() {
 
@@ -13,18 +15,35 @@ class LobbyFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_lobby, container, false)
 
-        // TODO navigation to AddAFriend
 
-        // TODO navigation to PlayWFriend
+        val view = inflater.inflate(R.layout.fragment_lobby, container, false)
 
-        // TODO navigation to PlayWRandom
+        view.button_rules.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_rulesFragment)
+        }
 
-        // TODO navigation to Stats
+        view.button_stats.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_statisticsFragment)
+        }
 
-        // TODO navigation to Rules
+        view.button_playw_friend.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_playWithFriendFragment)
+        }
 
+        view.button_addfriend.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_addFriendFragment)
+        }
+
+        view.button_settings.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_settingsFragment2)
+        }
+
+        view.button_playw_random.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_gamepage)
+        }
+
+        return view
     }
 
 }

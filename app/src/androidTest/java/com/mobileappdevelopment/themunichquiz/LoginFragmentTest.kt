@@ -2,6 +2,7 @@ package com.mobileappdevelopment.themunichquiz
 
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -13,7 +14,7 @@ class LoginFragmentTest {
     @Test
     fun testSignupButton() {
         val scenario = launchFragmentInContainer<LoginFragment>()
-        Espresso.onView(ViewMatchers.withId(R.id.button_signup))
+        onView(ViewMatchers.withId(R.id.button_signup))
             .perform(ViewActions.click())
     }
 }

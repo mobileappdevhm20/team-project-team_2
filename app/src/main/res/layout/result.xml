@@ -20,6 +20,7 @@
         android:background="@drawable/logo"
         />
     <View
+        android:id="@+id/back"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_margin="5dp"
@@ -54,7 +55,7 @@
             android:autofillHints="@string/username" />
 
         <Button
-            android:id="@+id/button_login"
+            android:id="@+id/button_statt"
             android:layout_width="wrap_content"
             android:layout_height="?actionBarSize"
             android:background="@drawable/button_white"
