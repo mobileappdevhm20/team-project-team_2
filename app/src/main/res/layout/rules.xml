@@ -16,7 +16,7 @@
         android:id="@+id/logo"
         android:layout_width="323dp"
         android:layout_height="323dp"
-        android:layout_marginTop="?actionBarSize"
+        android:layout_marginTop="?android:attr/actionBarSize"
         android:background="@drawable/logo"
         />
 
@@ -47,7 +47,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:text="@string/rules"
             android:textColor="#000000"
             android:gravity="center"
@@ -58,9 +58,9 @@
             android:id="@+id/rules"
             android:layout_gravity="start"
             android:layout_marginTop="100dp"
-            android:layout_marginLeft="?actionBarSize"
-            android:layout_width="?actionBarSize"
-            android:layout_height="?actionBarSize"
+            android:layout_marginLeft="?android:attr/actionBarSize"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/ic_rules"
             />
 

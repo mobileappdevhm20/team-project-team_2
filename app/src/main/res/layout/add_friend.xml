@@ -16,7 +16,7 @@
         android:id="@+id/logo"
         android:layout_width="323dp"
         android:layout_height="323dp"
-        android:layout_marginTop="?actionBarSize"
+        android:layout_marginTop="?android:attr/actionBarSize"
         android:background="@drawable/logo"
         />
 
@@ -44,7 +44,7 @@
         android:id="@+id/text_username"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="?actionBarSize"
+        android:layout_height="?android:attr/actionBarSize"
         android:layout_margin="10dp"
         android:autofillHints="@string/username"
         android:background="@drawable/button_white"
@@ -56,7 +56,7 @@
         android:id="@+id/button_add"
         android:layout_gravity="bottom"
         android:layout_width="wrap_content"
-        android:layout_height="?actionBarSize"
+        android:layout_height="?android:attr/actionBarSize"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="30dp"
