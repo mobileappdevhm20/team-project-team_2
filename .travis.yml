@@ -3,45 +3,56 @@ jdk: oraclejdk8
 dist: xenial
 os: linux
 env:
- global:
+  global:
     - ANDROID_API_LEVEL=29
     - ANDROID_BUILD_TOOLS_VERSION=29.0.3
 
 android:
- licenses:
+  licenses:
     - 'android-sdk-preview-license-.+'
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
- components:
+  components:
     - tools
     - platform-tools
     # The BuildTools version used by your project
     - build-tools-$ANDROID_BUILD_TOOLS_VERSION
     # The SDK version used to compile your project
     - android-$ANDROID_API_LEVEL
+    - android-22
     # Additional components
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
     - addon-google_apis-google-$ANDROID_API_LEVEL
+    - extra
+    - addon
+    - sys-img-armeabi-v7a-android-22
 
 before_script:
-- chmod +x gradlew
+  - chmod +x gradlew
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
 
 script:
-- ./gradlew assembleDebug
+  - ./gradlew installDebug connectedAndroidTest
+  - ./gradlew assembleDebug
 
 deploy:
   provider: releases
   token: $GITHUB_API_KEY
   file: $TRAVIS_BUILD_DIR/app/build/outputs/apk/debug/app-debug.apk
-  name: dev-build-$TRAVIS_JOB_ID
+  name: dev-build-$TRAVIS_TAG
   release_notes: Automatic build of $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
   prerelease: true
   overwrite: true
   skip_cleanup: true
   draft: true
   target_commitish: $TRAVIS_COMMIT
+  on:
+    branch: master
 
 
 after_deploy:
