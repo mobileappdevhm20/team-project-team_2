@@ -35,10 +35,4 @@ class LoginFragmentTest {
             .perform(ViewActions.click())
         assertEquals(navController.currentDestination?.id, R.id.signUpFragment2)
     }
-    @Test
-    fun testLoginButton() {
-        onView(ViewMatchers.withId(R.id.button_login))
-            .perform(ViewActions.click())
-        assertEquals(navController.currentDestination?.id, R.id.loginFragment)
-    }
 }
