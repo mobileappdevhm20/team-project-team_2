@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "989899053074",
+    "firebase_url": "https://the-munich-quiz.firebaseio.com",
+    "project_id": "the-munich-quiz",
+    "storage_bucket": "the-munich-quiz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989899053074:android:06ce09d25ebf815d41e0cb",
+        "android_client_info": {
+          "package_name": "com.mobileappdevelopment.themunichquiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989899053074-ln87vmvu5gb0uqq4evnqi8s1155gi3n7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMBljUC_vajd4GRFf08yI7NKd2aY8ex38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989899053074-ln87vmvu5gb0uqq4evnqi8s1155gi3n7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
