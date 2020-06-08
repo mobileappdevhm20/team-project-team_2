@@ -37,63 +37,47 @@
             android:layout_gravity="bottom|center_horizontal"
             android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp">
+            <EditText
+                android:id="@+id/text_email"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:background="@drawable/button_white"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:hint="@string/email"
+                android:inputType="text"
+                android:autofillHints="@string/email" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="74dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/username" />
+            <EditText
+                android:id="@+id/text_password"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:background="@drawable/button_white"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:autofillHints="@string/password" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="74dp"
-                    android:layout_margin="10dp"
-                    android:id="@+id/email"
-                    android:background="@drawable/email" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="79dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="74dp"
-                    android:layout_margin="10dp"
-                    android:id="@+id/password"
-                    android:background="@drawable/password" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="77dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="74dp"
-                    android:layout_margin="10dp"
-                    android:id="@+id/repeat_password"
-                    android:background="@drawable/repeatpassword" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/text_password-repeat"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:background="@drawable/button_white"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:autofillHints="@string/password" />
 
             <Button
-                android:id="@+id/signupbtn"
-                android:layout_width="match_parent"
-                android:layout_height="76dp"
+                android:id="@+id/button_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:background="@drawable/button_black"
                 android:layout_margin="10dp"
-                android:background="@drawable/signupbtn"
-                android:text="Sign Up"
-                android:textColor="?android:attr/colorBackground"
-                android:textSize="20sp" />
+                android:text="@string/sign_up"
+                android:textColor="#ffffff" />
 
         </LinearLayout>
     </FrameLayout>
