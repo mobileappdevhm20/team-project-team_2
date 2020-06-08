@@ -16,7 +16,7 @@
         android:id="@+id/logo"
         android:layout_width="323dp"
         android:layout_height="323dp"
-        android:layout_marginTop="?actionBarSize"
+        android:layout_marginTop="?android:attr/actionBarSize"
         android:background="@drawable/logo"
         />
     <View
@@ -57,7 +57,7 @@
         <Button
             android:id="@+id/button_statt"
             android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/button_white"
             android:layout_margin="10dp"
             android:text="@string/statistic"/>

@@ -17,7 +17,7 @@
         android:id="@+id/logo"
         android:layout_width="323dp"
         android:layout_height="323dp"
-        android:layout_marginTop="?actionBarSize"
+        android:layout_marginTop="?android:attr/actionBarSize"
         android:background="@drawable/logo"
         />
 
