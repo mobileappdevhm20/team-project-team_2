@@ -40,7 +40,7 @@
             <EditText
                 android:id="@+id/text_email"
                 android:layout_width="wrap_content"
-                android:layout_height="?actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
                 android:background="@drawable/button_white"
                 android:layout_margin="10dp"
                 android:padding="10dp"
@@ -51,7 +51,7 @@
             <EditText
                 android:id="@+id/text_password"
                 android:layout_width="wrap_content"
-                android:layout_height="?actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
                 android:background="@drawable/button_white"
                 android:padding="10dp"
                 android:layout_margin="10dp"
@@ -62,7 +62,7 @@
             <EditText
                 android:id="@+id/text_password-repeat"
                 android:layout_width="wrap_content"
-                android:layout_height="?actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
                 android:background="@drawable/button_white"
                 android:padding="10dp"
                 android:layout_margin="10dp"
@@ -73,7 +73,7 @@
             <Button
                 android:id="@+id/button_signup"
                 android:layout_width="wrap_content"
-                android:layout_height="?actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
                 android:background="@drawable/button_black"
                 android:layout_margin="10dp"
                 android:text="@string/sign_up"
