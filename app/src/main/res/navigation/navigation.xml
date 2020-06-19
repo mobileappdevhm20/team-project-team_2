@@ -6,7 +6,7 @@
     app:startDestination="@id/startFragment3">
     <fragment
         android:id="@+id/startFragment3"
-        android:name="com.mobileappdevelopment.themunichquiz.StartFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.fragment.StartFragment"
         android:label="start_page"
         tools:layout="@layout/start_page" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.mobileappdevelopment.themunichquiz.LoginFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.fragment.LoginFragment"
         android:label="login"
         tools:layout="@layout/login" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/lobbyFragment"
-        android:name="com.mobileappdevelopment.themunichquiz.LobbyFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.fragment.LobbyFragment"
         android:label="fragment_lobby"
         tools:layout="@layout/fragment_lobby" >
         <action
@@ -51,7 +51,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.mobileappdevelopment.themunichquiz.ResultFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.fragment.ResultFragment"
         android:label="ResultFragment" >
         <action
             android:id="@+id/action_resultFragment_to_statisticsFragment"
@@ -63,7 +63,7 @@
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"
-        android:name="com.mobileappdevelopment.themunichquiz.RulesFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.fragment.RulesFragment"
         android:label="rules"
         tools:layout="@layout/rules" >
         <action
@@ -76,7 +76,7 @@
     </fragment>
     <fragment
         android:id="@+id/playWithFriendFragment"
-        android:name="com.mobileappdevelopment.themunichquiz.PlayWithFriendFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.fragment.PlayWithFriendFragment"
         android:label="PlayWithFriendFragment" >
         <action
             android:id="@+id/action_playWithFriendFragment_to_lobbyFragment"
@@ -85,7 +85,7 @@
     </fragment>
     <fragment
         android:id="@+id/statisticsFragment"
-        android:name="com.mobileappdevelopment.themunichquiz.StatisticsFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.fragment.StatisticsFragment"
         android:label="StatisticsFragment" >
         <action
             android:id="@+id/action_statisticsFragment_to_lobbyFragment"
@@ -94,7 +94,7 @@
     </fragment>
     <fragment
         android:id="@+id/addFriendFragment"
-        android:name="com.mobileappdevelopment.themunichquiz.AddFriendFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.fragment.AddFriendFragment"
         android:label="AddFriendFragment" >
         <action
             android:id="@+id/action_addFriendFragment_to_lobbyFragment"
@@ -103,7 +103,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment2"
-        android:name="com.mobileappdevelopment.themunichquiz.SettingsFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.fragment.SettingsFragment"
         android:label="activity_settings"
         tools:layout="@layout/activity_settings" >
         <action
@@ -113,7 +113,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment2"
-        android:name="com.mobileappdevelopment.themunichquiz.SignUpFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.fragment.SignUpFragment"
         android:label="activity_signup"
         tools:layout="@layout/activity_signup" >
         <action

@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Gamepage"></activity>
-        <activity android:name=".SignUpFragment" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".fragment.SignUpFragment" />
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,17 +1,12 @@
-package com.mobileappdevelopment.themunichquiz
+package com.mobileappdevelopment.themunichquiz.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import kotlinx.android.synthetic.main.login.*
-import kotlinx.android.synthetic.main.login.view.*
-import kotlinx.android.synthetic.main.rules.*
+import com.mobileappdevelopment.themunichquiz.R
 import kotlinx.android.synthetic.main.rules.view.*
 
 class RulesFragment : Fragment() {

@@ -8,6 +8,7 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.mobileappdevelopment.themunichquiz.fragment.StartFragment
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test

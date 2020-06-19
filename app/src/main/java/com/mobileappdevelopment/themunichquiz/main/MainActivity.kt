@@ -1,10 +1,8 @@
-package com.mobileappdevelopment.themunichquiz
+package com.mobileappdevelopment.themunichquiz.main
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
+import com.mobileappdevelopment.themunichquiz.R
 
 class MainActivity : AppCompatActivity() {
 

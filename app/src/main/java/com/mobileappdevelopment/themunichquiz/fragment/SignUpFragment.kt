@@ -1,6 +1,5 @@
-package com.mobileappdevelopment.themunichquiz
+package com.mobileappdevelopment.themunichquiz.fragment
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +10,9 @@ import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.mobileappdevelopment.themunichquiz.R
 import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.android.synthetic.main.activity_signup.view.*
-import kotlinx.android.synthetic.main.activity_signup.view.text_email
-import kotlinx.android.synthetic.main.activity_signup.view.text_password
-import kotlinx.android.synthetic.main.activity_signup.view.text_password_repeat
 
 class SignUpFragment : Fragment() {
     private lateinit var auth: FirebaseAuth

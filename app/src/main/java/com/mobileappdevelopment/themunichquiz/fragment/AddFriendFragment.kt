@@ -1,4 +1,4 @@
-package com.mobileappdevelopment.themunichquiz
+package com.mobileappdevelopment.themunichquiz.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.mobileappdevelopment.themunichquiz.R
 import kotlinx.android.synthetic.main.add_friend.view.*
 
 class AddFriendFragment : Fragment(){
