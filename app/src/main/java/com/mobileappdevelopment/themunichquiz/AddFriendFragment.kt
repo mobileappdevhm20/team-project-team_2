@@ -8,6 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.add_friend.view.*
 
+
+/**
+ * send firebase massage want to be friends
+ */
 class AddFriendFragment : Fragment(){
 
     override fun onCreateView(
@@ -23,7 +27,6 @@ class AddFriendFragment : Fragment(){
         view.button_add.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_addFriendFragment_to_lobbyFragment)
         }
-        // TODO Button clicks
 
         return view
     }
