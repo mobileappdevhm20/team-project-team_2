@@ -41,6 +41,7 @@ class LoginFragment : Fragment() {
                 auth.signInWithEmailAndPassword(username, password)
                     .addOnCompleteListener(requireActivity()){task->
                         if (task.isSuccessful) {
+                            Log.d("UID", auth.uid)
                             view.findNavController().navigate(R.id.action_loginFragment_to_lobbyFragment)
                         } else {
                             Toast.makeText(context, "Authentication failed.",
