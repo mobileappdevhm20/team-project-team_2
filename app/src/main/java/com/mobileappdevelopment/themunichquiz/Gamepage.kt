@@ -14,6 +14,7 @@ import com.google.firebase.database.*
 import com.mobileappdevelopment.themunichquiz.model.Game
 import com.mobileappdevelopment.themunichquiz.model.Question
 import kotlinx.android.synthetic.main.activity_gamepage.view.*
+import kotlinx.android.synthetic.main.fragment_gamepage.view.*
 
 class Gamepage : Fragment() {
     lateinit var fd: FirebaseDatabase
@@ -31,7 +32,7 @@ class Gamepage : Fragment() {
         Log.d("All questions", dr.child("questions").toString())
 
         // Create view
-        val view = inflater.inflate(R.layout.activity_gamepage, container, false)
+        val view = inflater.inflate(R.layout.fragment_gamepage, container, false)
 
         // Create new game
         val pushedGameReference: DatabaseReference = dr.child("games").push()
@@ -57,7 +58,10 @@ class Gamepage : Fragment() {
                                 currentQuestion = Question(dataSnapshot.child("question").value.toString(), dataSnapshot.child("optionA").value.toString(),
                                     dataSnapshot.child("optionB").value.toString(), dataSnapshot.child("optionC").value.toString(), dataSnapshot.child("optionD").value.toString())
                                 // Update UI
-                                view.textView2.text = "Question: " + currentQuestion.question
+                                view.question.text = "Question: " + currentQuestion.question
+                                view.answer1.text = currentQuestion.optionA
+                                view.answer2.text = currentQuestion.optionB
+                                view.answer3.text = currentQuestion.optionC
                                 // TODO fill questions
                             }
                             override fun onCancelled(p0: DatabaseError) {
