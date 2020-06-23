@@ -14,15 +14,16 @@
 
         <ImageView
             android:id="@+id/imageView12"
-            android:layout_width="499dp"
-            android:layout_height="754dp"
-            app:srcCompat="@drawable/backgroundimage" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/background" />
 
         <ImageView
             android:id="@+id/imageView9"
             android:layout_width="324dp"
             android:layout_height="472dp"
-            app:srcCompat="@drawable/logo2" />
+            app:srcCompat="@drawable/logo" />
 
         <TextView
             android:id="@+id/settings"
