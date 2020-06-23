@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.mobileappdevelopment.themunichquiz.R
-import kotlinx.android.synthetic.main.activity_gamepage.view.*
+import kotlinx.android.synthetic.main.gamepage.view.*
 
 class GamepageFragment : Fragment() {
 
@@ -15,7 +15,7 @@ class GamepageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.activity_gamepage, container, false)
+        val view = inflater.inflate(R.layout.gamepage, container, false)
         view.imageButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_gamepage_to_lobbyFragment)
         }

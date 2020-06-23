@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.mobileappdevelopment.themunichquiz.R
-import kotlinx.android.synthetic.main.fragment_statistics.view.*
+import kotlinx.android.synthetic.main.statistics.view.*
 
 class StatisticsFragment : Fragment() {
 
@@ -15,7 +15,7 @@ class StatisticsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view =  inflater.inflate(R.layout.fragment_statistics, container, false)
+        val view = inflater.inflate(R.layout.statistics, container, false)
 
         view.backButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_statisticsFragment_to_lobbyFragment)

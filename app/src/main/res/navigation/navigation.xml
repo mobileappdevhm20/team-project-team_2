@@ -105,7 +105,7 @@
         android:id="@+id/settingsFragment2"
         android:name="com.mobileappdevelopment.themunichquiz.fragment.SettingsFragment"
         android:label="activity_settings"
-        tools:layout="@layout/activity_settings" >
+        tools:layout="@layout/settings" >
         <action
             android:id="@+id/action_settingsFragment2_to_lobbyFragment"
             app:destination="@id/lobbyFragment"
@@ -115,7 +115,7 @@
         android:id="@+id/signUpFragment2"
         android:name="com.mobileappdevelopment.themunichquiz.fragment.SignUpFragment"
         android:label="activity_signup"
-        tools:layout="@layout/activity_signup" >
+        tools:layout="@layout/signup" >
         <action
             android:id="@+id/action_signUpFragment2_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -123,9 +123,9 @@
     </fragment>
     <fragment
         android:id="@+id/gamepage"
-        android:name="com.mobileappdevelopment.themunichquiz.Gamepage"
+        android:name="com.mobileappdevelopment.themunichquiz.fragment.GamepageFragment"
         android:label="activity_gamepage"
-        tools:layout="@layout/activity_gamepage" >
+        tools:layout="@layout/gamepage" >
         <action
             android:id="@+id/action_gamepage_to_lobbyFragment"
             app:destination="@id/lobbyFragment"

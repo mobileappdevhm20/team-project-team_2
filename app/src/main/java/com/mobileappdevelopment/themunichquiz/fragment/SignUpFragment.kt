@@ -11,8 +11,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.mobileappdevelopment.themunichquiz.R
-import kotlinx.android.synthetic.main.activity_signup.*
-import kotlinx.android.synthetic.main.activity_signup.view.*
+import kotlinx.android.synthetic.main.signup.*
+import kotlinx.android.synthetic.main.signup.view.*
 
 class SignUpFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
@@ -21,7 +21,7 @@ class SignUpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.activity_signup, container, false)
+        val view = inflater.inflate(R.layout.signup, container, false)
 
         auth = Firebase.auth
 
