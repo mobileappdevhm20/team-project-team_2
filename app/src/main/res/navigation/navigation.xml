@@ -60,6 +60,9 @@
             android:id="@+id/action_resultFragment_to_lobbyFragment"
             app:destination="@id/lobbyFragment"
             app:popUpTo="@id/loginFragment" />
+        <argument
+            android:name="gameKey"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"

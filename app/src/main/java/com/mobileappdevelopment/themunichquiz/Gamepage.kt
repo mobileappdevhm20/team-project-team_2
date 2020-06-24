@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -28,7 +29,8 @@ class Gamepage : Fragment() {
         auth = FirebaseAuth.getInstance()
         fd = FirebaseDatabase.getInstance()
         dr = fd.reference
-        var currentQuestion: Question
+        lateinit var currentQuestion: Question
+        var correctAnswer = 0
         Log.d("All questions", dr.child("questions").toString())
 
         // Create view
@@ -36,7 +38,7 @@ class Gamepage : Fragment() {
 
         // Create new game
         val pushedGameReference: DatabaseReference = dr.child("games").push()
-        pushedGameReference.setValue(Game(listOf(1, 2, 3, 4), auth.uid!!, "test"))
+        pushedGameReference.setValue(Game(questions = listOf(1, 2, 3, 4), playerOne = auth.uid!!, playerTwo = "test"))
 
         // Set event listener to current question
         dr.child("games").child(pushedGameReference.key!!).child("currentQuestion").addValueEventListener(object: ValueEventListener {
@@ -59,10 +61,11 @@ class Gamepage : Fragment() {
                                     dataSnapshot.child("optionB").value.toString(), dataSnapshot.child("optionC").value.toString(), dataSnapshot.child("optionD").value.toString())
                                 // Update UI
                                 view.question.text = "Question: " + currentQuestion.question
+                                correctAnswer = 1
                                 view.answer1.text = currentQuestion.optionA
                                 view.answer2.text = currentQuestion.optionB
                                 view.answer3.text = currentQuestion.optionC
-                                // TODO fill questions
+                                view.answer4.text = currentQuestion.optionD
                             }
                             override fun onCancelled(p0: DatabaseError) {
                                 // Failed to read value
@@ -76,44 +79,90 @@ class Gamepage : Fragment() {
 
         })
 
-        view.imageButton2.setOnClickListener { view ->
-            val currentQuestionRef = dr.child("games").child(pushedGameReference.key!!).child("currentQuestion")
-
-            currentQuestionRef.runTransaction(object : Transaction.Handler {
-                override fun doTransaction(mutableData: MutableData): Transaction.Result {
-                    var p = mutableData.getValue(Int::class.java)
-                        ?: return Transaction.success(mutableData)
-
-                    if (p != null) {
-                        p = p + 1
-                    }
-
-                    // Set value and report transaction success
-                    mutableData.value = p
-                    return Transaction.success(mutableData)
-                }
-
-                override fun onComplete(
-                    databaseError: DatabaseError?,
-                    committed: Boolean,
-                    currentData: DataSnapshot?
-                ) {
-                    // Transaction completed
-                    Log.d("TAG", "postTransaction:onComplete:")
-                }
-            })
+        view.answer1.setOnClickListener { view ->
+            if (correctAnswer == 1) {
+                increasePlayerScore(pushedGameReference)
+            }
+            goToNextQuestion(pushedGameReference, view)
         }
 
-        view.imageButton3.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_gamepage_to_resultFragment)
+        view.answer2.setOnClickListener { view ->
+            if (correctAnswer == 2) {
+                increasePlayerScore(pushedGameReference)
+            }
+            goToNextQuestion(pushedGameReference, view)
         }
-        view.imageButton4.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_gamepage_to_resultFragment)
+        view.answer3.setOnClickListener { view ->
+            if (correctAnswer == 3) {
+                increasePlayerScore(pushedGameReference)
+            }
+            goToNextQuestion(pushedGameReference, view)
         }
-        view.imageButton5.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_gamepage_to_resultFragment)
+        view.answer4.setOnClickListener { view ->
+            if (correctAnswer == 4) {
+                increasePlayerScore(pushedGameReference)
+            }
+            goToNextQuestion(pushedGameReference, view)
         }
         return view
     }
 
+    fun increasePlayerScore(pushedGameReference: DatabaseReference) {
+        val currentScoreRef = dr.child("games").child(pushedGameReference.key!!).child("playerOneScore")
+
+        currentScoreRef.runTransaction(object : Transaction.Handler {
+            override fun doTransaction(mutableData: MutableData): Transaction.Result {
+                var p = mutableData.getValue(Int::class.java)
+                    ?: return Transaction.success(mutableData)
+
+                if (p != null) {
+                    p += 1
+                }
+
+                // Set value and report transaction success
+                mutableData.value = p
+                return Transaction.success(mutableData)
+            }
+
+            override fun onComplete(
+                databaseError: DatabaseError?,
+                committed: Boolean,
+                currentData: DataSnapshot?
+            ) {
+                // Transaction completed
+                Log.d("TAG", "postTransaction:onComplete:")
+            }
+        })
+    }
+
+    fun goToNextQuestion(pushedGameReference: DatabaseReference, view: View) {
+        val currentQuestionRef = dr.child("games").child(pushedGameReference.key!!).child("currentQuestion")
+
+        currentQuestionRef.runTransaction(object : Transaction.Handler {
+            override fun doTransaction(mutableData: MutableData): Transaction.Result {
+                var p = mutableData.getValue(Int::class.java)
+                    ?: return Transaction.success(mutableData)
+
+                if (p != null && p<3) {
+                    p += 1
+                } else if(p != null) {
+                    val bundle = bundleOf("gameKey" to pushedGameReference.key!!)
+                    view.findNavController().navigate(R.id.action_gamepage_to_resultFragment, bundle)
+                }
+
+                // Set value and report transaction success
+                mutableData.value = p
+                return Transaction.success(mutableData)
+            }
+
+            override fun onComplete(
+                databaseError: DatabaseError?,
+                committed: Boolean,
+                currentData: DataSnapshot?
+            ) {
+                // Transaction completed
+                Log.d("TAG", "postTransaction:onComplete:")
+            }
+        })
+    }
 }
