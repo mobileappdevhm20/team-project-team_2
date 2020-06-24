@@ -14,7 +14,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.mobileappdevelopment.themunichquiz.model.Game
 import com.mobileappdevelopment.themunichquiz.model.Question
-import kotlinx.android.synthetic.main.activity_gamepage.view.*
 import kotlinx.android.synthetic.main.fragment_gamepage.view.*
 
 class Gamepage : Fragment() {
