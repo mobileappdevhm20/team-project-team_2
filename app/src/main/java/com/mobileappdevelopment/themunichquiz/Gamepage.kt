@@ -13,6 +13,7 @@ import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.mobileappdevelopment.themunichquiz.model.Game
+import com.mobileappdevelopment.themunichquiz.model.GamesReference
 import com.mobileappdevelopment.themunichquiz.model.Question
 import kotlinx.android.synthetic.main.activity_gamepage.view.*
 import kotlinx.android.synthetic.main.fragment_gamepage.view.*
@@ -31,24 +32,41 @@ class Gamepage : Fragment() {
         dr = fd.reference
         lateinit var currentQuestion: Question
         var correctAnswer = 0
+        val gameId: String
         Log.d("All questions", dr.child("questions").toString())
 
         // Create view
         val view = inflater.inflate(R.layout.fragment_gamepage, container, false)
 
-        // Create new game
-        val pushedGameReference: DatabaseReference = dr.child("games").push()
-        pushedGameReference.setValue(Game(questions = listOf(1, 2, 3, 4), playerOne = auth.uid!!, playerTwo = "test"))
+        if(requireArguments().getString("gameKey") != null) {
+            gameId = requireArguments().getString("gameKey")!!
+        } else if (requireArguments().getString("opponentId") != null) {
+            val pushedGameReference: DatabaseReference = dr.child("games").push()
+            pushedGameReference.setValue(Game(questions = listOf(1, 2, 3, 4), playerOne = auth.uid!!, playerTwo = requireArguments().getString("opponentId")!!))
+            val pusehdOngoingGamesReference: DatabaseReference = dr.child("users").child(auth.uid!!).child("ongoingGames").push()
+            val pusehdOngoingGamesOpponentReference: DatabaseReference = dr.child("users").child(requireArguments().getString("opponentId")!!).child("ongoingGames").push()
+            gameId = pushedGameReference.key!!
+            pusehdOngoingGamesReference.setValue(GamesReference(gameId))
+            pusehdOngoingGamesOpponentReference.setValue(GamesReference(gameId))
+        } else {
+            val pushedGameReference: DatabaseReference = dr.child("games").push()
+            pushedGameReference.setValue(Game(questions = listOf(1, 2, 3, 4), playerOne = auth.uid!!, playerTwo = "Random Player"))
+            val pusehdOngoingGamesReference: DatabaseReference = dr.child("users").child(auth.uid!!).child("ongoingGames").push()
+            val pusehdOngoingGamesOpponentReference: DatabaseReference = dr.child("users").child("Random Player").child("ongoingGames").push()
+            gameId = pushedGameReference.key!!
+            pusehdOngoingGamesReference.setValue(GamesReference(gameId))
+            pusehdOngoingGamesOpponentReference.setValue(GamesReference(gameId))
+        }
 
         // Set event listener to current question
-        dr.child("games").child(pushedGameReference.key!!).child("currentQuestion").addValueEventListener(object: ValueEventListener {
+        dr.child("games").child(gameId).child("currentQuestion").addValueEventListener(object: ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 // load current question id
-                dr.child("games").child(pushedGameReference.key!!).child("questions").child(snapshot.value.toString()).addValueEventListener(object: ValueEventListener {
+                dr.child("games").child(gameId).child("questions").child(snapshot.value.toString()).addValueEventListener(object: ValueEventListener {
                     override fun onCancelled(error: DatabaseError) {
                         TODO("Not yet implemented")
                     }
@@ -81,34 +99,34 @@ class Gamepage : Fragment() {
 
         view.answer1.setOnClickListener { view ->
             if (correctAnswer == 1) {
-                increasePlayerScore(pushedGameReference)
+                increasePlayerScore(gameId)
             }
-            goToNextQuestion(pushedGameReference, view)
+            goToNextQuestion(gameId, view)
         }
 
         view.answer2.setOnClickListener { view ->
             if (correctAnswer == 2) {
-                increasePlayerScore(pushedGameReference)
+                increasePlayerScore(gameId)
             }
-            goToNextQuestion(pushedGameReference, view)
+            goToNextQuestion(gameId, view)
         }
         view.answer3.setOnClickListener { view ->
             if (correctAnswer == 3) {
-                increasePlayerScore(pushedGameReference)
+                increasePlayerScore(gameId)
             }
-            goToNextQuestion(pushedGameReference, view)
+            goToNextQuestion(gameId, view)
         }
         view.answer4.setOnClickListener { view ->
             if (correctAnswer == 4) {
-                increasePlayerScore(pushedGameReference)
+                increasePlayerScore(gameId)
             }
-            goToNextQuestion(pushedGameReference, view)
+            goToNextQuestion(gameId, view)
         }
         return view
     }
 
-    fun increasePlayerScore(pushedGameReference: DatabaseReference) {
-        val currentScoreRef = dr.child("games").child(pushedGameReference.key!!).child("playerOneScore")
+    fun increasePlayerScore(gameId: String) {
+        val currentScoreRef = dr.child("games").child(gameId).child("playerOneScore")
 
         currentScoreRef.runTransaction(object : Transaction.Handler {
             override fun doTransaction(mutableData: MutableData): Transaction.Result {
@@ -135,8 +153,8 @@ class Gamepage : Fragment() {
         })
     }
 
-    fun goToNextQuestion(pushedGameReference: DatabaseReference, view: View) {
-        val currentQuestionRef = dr.child("games").child(pushedGameReference.key!!).child("currentQuestion")
+    fun goToNextQuestion(gameId: String, view: View) {
+        val currentQuestionRef = dr.child("games").child(gameId).child("currentQuestion")
 
         currentQuestionRef.runTransaction(object : Transaction.Handler {
             override fun doTransaction(mutableData: MutableData): Transaction.Result {
@@ -146,7 +164,7 @@ class Gamepage : Fragment() {
                 if (p != null && p<3) {
                     p += 1
                 } else if(p != null) {
-                    val bundle = bundleOf("gameKey" to pushedGameReference.key!!)
+                    val bundle = bundleOf("gameKey" to gameId)
                     view.findNavController().navigate(R.id.action_gamepage_to_resultFragment, bundle)
                 }
 

@@ -19,6 +19,10 @@ class LobbyFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_lobby, container, false)
 
+        view.button_ongoinggames.setOnClickListener{view ->
+            view.findNavController().navigate(R.id.action_lobbyFragment_to_ongoing_games)
+        }
+
         view.button_rules.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_lobbyFragment_to_rulesFragment)
         }

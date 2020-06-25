@@ -48,6 +48,17 @@
         <action
             android:id="@+id/action_lobbyFragment_to_gamepage"
             app:destination="@id/gamepage" />
+        <action
+            android:id="@+id/action_lobbyFragment_to_ongoing_games"
+            app:destination="@id/ongoingGamesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ongoingGamesFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.OngoingGamesFragment"
+        android:label="OngoingGamesFragment" >
+        <action
+            android:id="@+id/action_ongoingGamesFragment_to_lobbyFragment"
+            app:destination="@id/lobbyFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -136,5 +147,11 @@
         <action
             android:id="@+id/action_gamepage_to_resultFragment"
             app:destination="@id/resultFragment" />
+        <argument
+            android:name="gameKey"
+            app:argType="string" />
+        <argument
+            android:name="opponentId"
+            app:argType="string" />
     </fragment>
 </navigation>
