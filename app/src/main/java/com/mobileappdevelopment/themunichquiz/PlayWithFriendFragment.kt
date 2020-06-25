@@ -42,7 +42,7 @@ class PlayWithFriendFragment : Fragment() {
 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_play_with_friend, container, false)
-        // test recycler
+        // initial ReciclerView
         mainMenu = view.findViewById(R.id.recyclerView)as RecyclerView
         mainMenu.layoutManager = LinearLayoutManager(context)
         mainMenu.adapter = adapter

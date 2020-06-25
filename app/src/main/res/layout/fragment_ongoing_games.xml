@@ -49,13 +49,13 @@
         android:textColor="#000000"
         android:gravity="top"
         />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewongoingGames"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="25dp">
 
-    <TextView
-        android:id="@+id/ongoing_games_text"
-        android:layout_width="285dp"
-        android:layout_height="371dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="276dp"
-        android:gravity="top" />
+    </androidx.recyclerview.widget.RecyclerView>
 
 </FrameLayout>

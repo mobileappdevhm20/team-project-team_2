@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
@@ -19,6 +21,9 @@ class StatisticsFragment : Fragment() {
     lateinit var auth: FirebaseAuth
     lateinit var dr: DatabaseReference
 
+    var adapter : StatisticAdapter = StatisticAdapter(listOf())
+    lateinit var mainMenu : RecyclerView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,6 +33,11 @@ class StatisticsFragment : Fragment() {
         dr = fd.reference
 
         val view =  inflater.inflate(R.layout.fragment_statistics, container, false)
+
+        // initial ReciclerView
+        mainMenu = view.findViewById(R.id.recyclerView)as RecyclerView
+        mainMenu.layoutManager = LinearLayoutManager(context)
+        mainMenu.adapter = adapter
 
         view.backButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_statisticsFragment_to_lobbyFragment)
@@ -49,21 +59,25 @@ class StatisticsFragment : Fragment() {
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
                 val userIndex = userIds.indexOf(snapshot.key.toString())
                 users[userIndex] = snapshot.getValue<User>()!!
-                view.StatisticsText.text = users.toString()
+                TODO( "die user nach der anzahlt der gewonnen Spiele filtern")
+                adapter = StatisticAdapter(listOf())
+                mainMenu.adapter = adapter
             }
 
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 Log.d("onChildAdded", snapshot.toString())
                 userIds.add(snapshot.key.toString())
                 users.add(snapshot.getValue<User>()!!)
-                view.StatisticsText.text = users.toString()
-            }
+                TODO( "die user nach der anzahlt der gewonnen Spiele filtern")
+                adapter = StatisticAdapter(listOf())
+                mainMenu.adapter = adapter            }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
                 val userIndex = userIds.indexOf(snapshot.key.toString())
                 users.removeAt(userIndex)
-                view.StatisticsText.text = users.toString()
-            }
+                TODO( "die user nach der anzahlt der gewonnen Spiele filtern")
+                adapter = StatisticAdapter(listOf())
+                mainMenu.adapter = adapter            }
 
         })
 

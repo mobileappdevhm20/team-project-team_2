@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
@@ -19,12 +21,21 @@ class OngoingGamesFragment: Fragment() {
     lateinit var auth: FirebaseAuth
     lateinit var dr: DatabaseReference
 
+    //varables vor RecylerView an Adapter
+    var adapter : OnGoingGameAdapter = OnGoingGameAdapter(listOf())
+    lateinit var mainMenu : RecyclerView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_ongoing_games, container, false)
+
+        //initial reciclerView
+        mainMenu = view.findViewById(R.id.recyclerView)as RecyclerView
+        mainMenu.layoutManager = LinearLayoutManager(context)
+        mainMenu.adapter = adapter
 
         auth = FirebaseAuth.getInstance()
         fd = FirebaseDatabase.getInstance()
@@ -46,22 +57,26 @@ class OngoingGamesFragment: Fragment() {
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
                 Log.d("onChildChanged", snapshot.toString())
                 ongoingGames[ongoingGamesId.indexOf(snapshot.key.toString())] = snapshot.getValue<GamesReference>()!!
-                view.ongoing_games_text.text = ongoingGames.toString()
+                //Todo ongoingGames is not a List<String>
+                adapter = OnGoingGameAdapter(listOf())
+                mainMenu.adapter = adapter
             }
 
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 Log.d("onChildAdded", snapshot.toString())
                 ongoingGamesId.add(snapshot.key.toString())
                 ongoingGames.add(snapshot.getValue<GamesReference>()!!)
-                view.ongoing_games_text.text = ongoingGames.toString()
-            }
+                //Todo ongoingGames is not a List<String>
+                adapter = OnGoingGameAdapter(listOf())
+                mainMenu.adapter = adapter            }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
                 Log.d("onChildRemoved", snapshot.toString())
                 val ongoingGamesIndex = ongoingGamesId.indexOf(snapshot.key.toString())
                 ongoingGames.removeAt(ongoingGamesIndex)
-                view.ongoing_games_text.text = ongoingGames.toString()
-            }
+                // Todo ongoingGames is not a List<String>
+                adapter = OnGoingGameAdapter(listOf())
+                mainMenu.adapter = adapter            }
 
         })
 
