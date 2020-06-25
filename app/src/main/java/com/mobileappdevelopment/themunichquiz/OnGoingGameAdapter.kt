@@ -6,18 +6,19 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.mobileappdevelopment.themunichquiz.model.GamesReference
 import kotlinx.android.synthetic.main.friends.view.*
 import kotlinx.android.synthetic.main.ongoinggames.view.*
 
-class OnGoingGameAdapter(var Games : List<String>) :
+class OnGoingGameAdapter(var Games : List<GamesReference>) :
     RecyclerView.Adapter<OnGoingGameAdapter.OnGoingGameViewHolder>() {
 
         class OnGoingGameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-            fun bind(game: String) {
-                itemView.games.text = game
+            fun bind(game: GamesReference) {
+                itemView.games.text = game.gameId
                 itemView.games.setOnClickListener { view ->
-                    val bundle = bundleOf("opponentId" to game)
+                    val bundle = bundleOf("gameKey" to game.gameId)
                     //Todo correct navigation
                     view.findNavController().navigate(R.id.action_lobbyFragment_to_gamepage, bundle)
                 }

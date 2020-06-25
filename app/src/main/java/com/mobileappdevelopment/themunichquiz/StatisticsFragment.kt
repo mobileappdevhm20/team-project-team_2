@@ -59,8 +59,7 @@ class StatisticsFragment : Fragment() {
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
                 val userIndex = userIds.indexOf(snapshot.key.toString())
                 users[userIndex] = snapshot.getValue<User>()!!
-                TODO( "die user nach der anzahlt der gewonnen Spiele filtern")
-                adapter = StatisticAdapter(listOf())
+                adapter = StatisticAdapter(users)
                 mainMenu.adapter = adapter
             }
 
@@ -69,14 +68,13 @@ class StatisticsFragment : Fragment() {
                 userIds.add(snapshot.key.toString())
                 users.add(snapshot.getValue<User>()!!)
                 TODO( "die user nach der anzahlt der gewonnen Spiele filtern")
-                adapter = StatisticAdapter(listOf())
+                adapter = StatisticAdapter(users)
                 mainMenu.adapter = adapter            }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
                 val userIndex = userIds.indexOf(snapshot.key.toString())
                 users.removeAt(userIndex)
-                TODO( "die user nach der anzahlt der gewonnen Spiele filtern")
-                adapter = StatisticAdapter(listOf())
+                adapter = StatisticAdapter(users)
                 mainMenu.adapter = adapter            }
 
         })

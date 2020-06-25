@@ -6,21 +6,17 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.mobileappdevelopment.themunichquiz.model.User
 import kotlinx.android.synthetic.main.friends.view.*
 import kotlinx.android.synthetic.main.statistics.view.*
 
-class StatisticAdapter (var stats: List<String>) :
+class StatisticAdapter (var stats: List<User>) :
     RecyclerView.Adapter<StatisticAdapter.StatsViewHolder>() {
 
     class StatsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(statistic: String) {
-            itemView.gamestatistic.text = statistic
-            itemView.friends.setOnClickListener { view ->
-                val bundle = bundleOf("opponentId" to statistic)
-                TODO("richtige navigation hinzufügen")
-                view.findNavController().navigate(R.id.action_lobbyFragment_to_gamepage, bundle)
-            }
+        fun bind(statistic: User) {
+            itemView.gamestatistic.text = statistic.score.toString()
         }
     }
 
