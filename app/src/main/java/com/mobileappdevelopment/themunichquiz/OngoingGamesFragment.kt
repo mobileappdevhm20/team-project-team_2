@@ -33,7 +33,7 @@ class OngoingGamesFragment: Fragment() {
         val view = inflater.inflate(R.layout.fragment_ongoing_games, container, false)
 
         //initial reciclerView
-        mainMenu = view.findViewById(R.id.recyclerView)as RecyclerView
+        mainMenu = view.findViewById(R.id.recyclerViewongoingGames)as RecyclerView
         mainMenu.layoutManager = LinearLayoutManager(context)
         mainMenu.adapter = adapter
 

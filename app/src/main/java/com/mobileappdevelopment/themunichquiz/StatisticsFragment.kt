@@ -67,7 +67,6 @@ class StatisticsFragment : Fragment() {
                 Log.d("onChildAdded", snapshot.toString())
                 userIds.add(snapshot.key.toString())
                 users.add(snapshot.getValue<User>()!!)
-                TODO( "die user nach der anzahlt der gewonnen Spiele filtern")
                 adapter = StatisticAdapter(users)
                 mainMenu.adapter = adapter            }
 
