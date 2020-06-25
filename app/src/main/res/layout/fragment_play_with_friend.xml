@@ -60,6 +60,14 @@
         android:contentDescription="@string/stats"
         />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="25dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
     <TextView
         android:id="@+id/Playw_FriendText"
         android:layout_width="285dp"

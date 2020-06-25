@@ -6,12 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import com.mobileappdevelopment.themunichquiz.model.User
+import kotlinx.android.synthetic.main.fragment_play_with_friend.*
 import kotlinx.android.synthetic.main.fragment_play_with_friend.view.*
+import kotlinx.android.synthetic.main.fragment_play_with_friend.view.recyclerView
 
 /**
  * A simple [Fragment] subclass.
@@ -21,6 +26,12 @@ class PlayWithFriendFragment : Fragment() {
     lateinit var auth: FirebaseAuth
     lateinit var dr: DatabaseReference
 
+    // variables für Adapter
+    var adapter : FriendsAdapter = FriendsAdapter(listOf())
+    lateinit var mainMenu : RecyclerView
+    //private val adapter by lazy { FriendsAdapter(arrayListOf("Test1", "Test2")) }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,8 +39,14 @@ class PlayWithFriendFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         fd = FirebaseDatabase.getInstance()
         dr = fd.reference
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_play_with_friend, container, false)
+        // test recycler
+        mainMenu = view.findViewById(R.id.recyclerView)as RecyclerView
+        mainMenu.layoutManager = LinearLayoutManager(context)
+        mainMenu.adapter = adapter
+
 
         var userIds: ArrayList<String> = arrayListOf()
         var users: ArrayList<String> = arrayListOf()
@@ -46,20 +63,23 @@ class PlayWithFriendFragment : Fragment() {
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
                 val userIndex = userIds.indexOf(snapshot.key.toString())
                 users[userIndex] = snapshot.getValue<String>()!!
-                view.Playw_FriendText.text = users.toString()
+                adapter = FriendsAdapter(users)
+                mainMenu.adapter = adapter
             }
 
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 Log.d("onChildAdded", snapshot.toString())
                 userIds.add(snapshot.key.toString())
                 users.add(snapshot.getValue<String>()!!)
-                view.Playw_FriendText.text = users.toString()
+                adapter = FriendsAdapter(users)
+                mainMenu.adapter = adapter
             }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
                 val userIndex = userIds.indexOf(snapshot.key.toString())
                 users.removeAt(userIndex)
-                view.Playw_FriendText.text = users.toString()
+                adapter = FriendsAdapter(users)
+                mainMenu.adapter = adapter
             }
 
         })
@@ -70,5 +90,8 @@ class PlayWithFriendFragment : Fragment() {
 
         return view
     }
+
+
+
 
 }
