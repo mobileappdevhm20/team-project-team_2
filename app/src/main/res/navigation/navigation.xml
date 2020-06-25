@@ -59,6 +59,9 @@
         <action
             android:id="@+id/action_ongoingGamesFragment_to_lobbyFragment"
             app:destination="@id/lobbyFragment" />
+        <action
+            android:id="@+id/action_ongoingGamesFragment_to_gameFragment"
+            app:destination="@id/gamepage" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"

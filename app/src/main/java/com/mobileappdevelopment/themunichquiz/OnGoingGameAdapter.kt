@@ -19,8 +19,7 @@ class OnGoingGameAdapter(var Games : List<GamesReference>) :
                 itemView.games.text = game.gameId
                 itemView.games.setOnClickListener { view ->
                     val bundle = bundleOf("gameKey" to game.gameId)
-                    //Todo correct navigation
-                    view.findNavController().navigate(R.id.action_lobbyFragment_to_gamepage, bundle)
+                    view.findNavController().navigate(R.id.action_ongoingGamesFragment_to_gameFragment, bundle)
                 }
             }
         }
