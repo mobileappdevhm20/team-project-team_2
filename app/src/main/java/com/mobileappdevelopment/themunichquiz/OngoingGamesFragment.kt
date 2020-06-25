@@ -58,7 +58,7 @@ class OngoingGamesFragment: Fragment() {
                 Log.d("onChildChanged", snapshot.toString())
                 ongoingGames[ongoingGamesId.indexOf(snapshot.key.toString())] = snapshot.getValue<GamesReference>()!!
                 //Todo ongoingGames is not a List<String>
-                adapter = OnGoingGameAdapter(listOf())
+                adapter = OnGoingGameAdapter(ongoingGames)
                 mainMenu.adapter = adapter
             }
 
@@ -67,15 +67,16 @@ class OngoingGamesFragment: Fragment() {
                 ongoingGamesId.add(snapshot.key.toString())
                 ongoingGames.add(snapshot.getValue<GamesReference>()!!)
                 //Todo ongoingGames is not a List<String>
-                adapter = OnGoingGameAdapter(listOf())
-                mainMenu.adapter = adapter            }
+                adapter = OnGoingGameAdapter(ongoingGames)
+                mainMenu.adapter = adapter
+            }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
                 Log.d("onChildRemoved", snapshot.toString())
                 val ongoingGamesIndex = ongoingGamesId.indexOf(snapshot.key.toString())
                 ongoingGames.removeAt(ongoingGamesIndex)
                 // Todo ongoingGames is not a List<String>
-                adapter = OnGoingGameAdapter(listOf())
+                adapter = OnGoingGameAdapter(ongoingGames)
                 mainMenu.adapter = adapter            }
 
         })
