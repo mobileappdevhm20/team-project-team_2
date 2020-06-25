@@ -17,7 +17,7 @@ class FriendsAdapter(var friends: List<String>) :
             itemView.friends.text = friend
             itemView.friends.setOnClickListener { view ->
                 val bundle = bundleOf("opponentId" to friend)
-                view.findNavController().navigate(R.id.action_lobbyFragment_to_gamepage, bundle)
+                view.findNavController().navigate(R.id.action_playWithFriendFragment_to_gameFragment, bundle)
             }
         }
     }

@@ -99,6 +99,10 @@
             android:id="@+id/action_playWithFriendFragment_to_lobbyFragment"
             app:destination="@id/lobbyFragment"
             app:popUpTo="@id/loginFragment" />
+        <action
+            android:id="@+id/action_playWithFriendFragment_to_gameFragment"
+            app:destination="@+id/gamepage"
+            app:popUpTo="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/statisticsFragment"

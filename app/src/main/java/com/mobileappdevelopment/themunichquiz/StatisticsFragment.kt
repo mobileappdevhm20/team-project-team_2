@@ -66,7 +66,6 @@ class StatisticsFragment : Fragment() {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 Log.d("onChildAdded", snapshot.toString())
                 userIds.add(snapshot.key.toString())
-                users.add(snapshot.getValue<User>()!!)
                 adapter = StatisticAdapter(users)
                 mainMenu.adapter = adapter            }
 
