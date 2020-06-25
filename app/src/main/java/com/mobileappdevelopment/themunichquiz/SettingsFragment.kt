@@ -17,7 +17,7 @@ class SettingsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.activity_settings, container, false)
 
-        view.imageButton20.setOnClickListener { view ->
+        view.back.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_settingsFragment2_to_lobbyFragment)
         }
 

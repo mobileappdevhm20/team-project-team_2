@@ -26,11 +26,12 @@ class ResultFragment : Fragment() {
         val view = inflater.inflate(R.layout.result, container, false)
 
         val gameKey = requireArguments().getString("gameKey")!!
+        val player = requireArguments().getString("player")!!
         var scoreUpdated = false
         var yourCorrectAnswers = -1
         var opponnentCorrectAnswers = -1
 
-        dr.child("games").child(gameKey).child("playerOneScore").addValueEventListener(object: ValueEventListener {
+        dr.child("games").child(gameKey).child(player).child("score").addValueEventListener(object: ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
@@ -38,31 +39,11 @@ class ResultFragment : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 yourCorrectAnswers = snapshot.getValue(Int::class.java) as Int
                 view.yourCorrectAnswers.text = yourCorrectAnswers.toString()
-
-                if(!scoreUpdated && opponnentCorrectAnswers != -1) {
-                    updatePlayerScore(yourCorrectAnswers, opponnentCorrectAnswers)
-                    scoreUpdated = true
-                }
+                view.opponentCorrectAnswers.text = (4-yourCorrectAnswers).toString()
             }
         }
         )
-
-        dr.child("games").child(gameKey).child("playerTwoScore").addValueEventListener(object: ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-                opponnentCorrectAnswers = snapshot.getValue(Int::class.java) as Int
-                view.opponentCorrectAnswers.text = opponnentCorrectAnswers.toString()
-
-                if(!scoreUpdated && yourCorrectAnswers != -1) {
-                    updatePlayerScore(yourCorrectAnswers, opponnentCorrectAnswers)
-                    scoreUpdated = true
-                }
-            }
-        }
-        )
+        dr.child("users").child(auth.uid!!).child("ongoingGames").child(gameKey).child("completed").setValue(true)
 
         view.button_statt.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_resultFragment_to_statisticsFragment)

@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import com.mobileappdevelopment.themunichquiz.R
+import com.mobileappdevelopment.themunichquiz.model.GamesReference
 import kotlinx.android.synthetic.main.fragment_ongoing_games.view.*
 
 class OngoingGamesFragment: Fragment() {
@@ -30,7 +31,7 @@ class OngoingGamesFragment: Fragment() {
         dr = fd.reference
 
         var ongoingGamesId: ArrayList<String> = arrayListOf()
-        var ongoingGames: ArrayList<String> = arrayListOf()
+        var ongoingGames: ArrayList<GamesReference> = arrayListOf()
 
         dr.child("users").child(auth.uid!!).child("ongoingGames").addChildEventListener( object:
             ChildEventListener {
@@ -44,14 +45,14 @@ class OngoingGamesFragment: Fragment() {
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
                 Log.d("onChildChanged", snapshot.toString())
-                ongoingGames[ongoingGamesId.indexOf(snapshot.key.toString())] = snapshot.getValue<String>()!!
+                ongoingGames[ongoingGamesId.indexOf(snapshot.key.toString())] = snapshot.getValue<GamesReference>()!!
                 view.ongoing_games_text.text = ongoingGames.toString()
             }
 
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 Log.d("onChildAdded", snapshot.toString())
                 ongoingGamesId.add(snapshot.key.toString())
-                ongoingGames.add(snapshot.getValue<String>()!!)
+                ongoingGames.add(snapshot.getValue<GamesReference>()!!)
                 view.ongoing_games_text.text = ongoingGames.toString()
             }
 

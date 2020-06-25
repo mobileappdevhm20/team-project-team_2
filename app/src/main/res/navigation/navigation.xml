@@ -74,6 +74,9 @@
         <argument
             android:name="gameKey"
             app:argType="string" />
+        <argument
+            android:name="player"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"

@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
+import com.mobileappdevelopment.themunichquiz.model.User
 import kotlinx.android.synthetic.main.fragment_play_with_friend.view.*
 
 /**
@@ -31,7 +32,7 @@ class PlayWithFriendFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_play_with_friend, container, false)
 
         var userIds: ArrayList<String> = arrayListOf()
-
+        var users: ArrayList<String> = arrayListOf()
         dr.child("users").child(auth.uid!!).child("friends").addChildEventListener( object:
             ChildEventListener {
             override fun onCancelled(error: DatabaseError) {
@@ -43,21 +44,22 @@ class PlayWithFriendFragment : Fragment() {
             }
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-                Log.d("onChildChanged", snapshot.toString())
-                userIds[Integer.parseInt(snapshot.key!!)-1] = snapshot.getValue<String>()!!
-                view.Playw_FriendText.text = userIds.toString()
+                val userIndex = userIds.indexOf(snapshot.key.toString())
+                users[userIndex] = snapshot.getValue<String>()!!
+                view.Playw_FriendText.text = users.toString()
             }
 
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 Log.d("onChildAdded", snapshot.toString())
-                userIds.add(Integer.parseInt(snapshot.key!!)-1, snapshot.getValue<String>()!!)
-                view.Playw_FriendText.text = userIds.toString()
+                userIds.add(snapshot.key.toString())
+                users.add(snapshot.getValue<String>()!!)
+                view.Playw_FriendText.text = users.toString()
             }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
-                Log.d("onChildRemoved", snapshot.toString())
-                userIds.removeAt(Integer.parseInt(snapshot.key!!)-1)
-                view.Playw_FriendText.text = userIds.toString()
+                val userIndex = userIds.indexOf(snapshot.key.toString())
+                users.removeAt(userIndex)
+                view.Playw_FriendText.text = users.toString()
             }
 
         })
@@ -65,9 +67,6 @@ class PlayWithFriendFragment : Fragment() {
         view.backButton.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_playWithFriendFragment_to_lobbyFragment)
         }
-        // TODO navigation to lobby
-
-        // TODO inflate Playw_FriendText from database
 
         return view
     }

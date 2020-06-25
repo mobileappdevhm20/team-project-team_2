@@ -48,17 +48,14 @@ class StatisticsFragment : Fragment() {
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
                 val userIndex = userIds.indexOf(snapshot.key.toString())
-                users[userIndex] = User(snapshot.child("email").getValue<String>()!!,
-                    snapshot.child("score").getValue<Int>()!!)
+                users[userIndex] = snapshot.getValue<User>()!!
                 view.StatisticsText.text = users.toString()
             }
 
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 Log.d("onChildAdded", snapshot.toString())
                 userIds.add(snapshot.key.toString())
-                users.add(User(snapshot.child("email").getValue<String>()!!,
-                    snapshot.child("score").getValue<Int>()!!
-                ))
+                users.add(snapshot.getValue<User>()!!)
                 view.StatisticsText.text = users.toString()
             }
 

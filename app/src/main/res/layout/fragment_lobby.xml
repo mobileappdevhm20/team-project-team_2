@@ -34,50 +34,57 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center|bottom"
-        android:layout_margin="50dp">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="50dp">
 
         <Button
             android:id="@+id/button_ongoinggames"
             android:layout_width="wrap_content"
             android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/button_white"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="15dp"
             android:text="Ongoing Games"/>
 
         <Button
             android:id="@+id/button_addfriend"
             android:layout_width="wrap_content"
             android:layout_height="?android:attr/actionBarSize"
-            android:background="@drawable/addfriend"
-            android:layout_marginBottom="20dp" />
+            android:background="@drawable/button_white"
+            android:text="@string/addafriend"
+            android:layout_marginBottom="15dp" />
 
         <Button
             android:id="@+id/button_playw_friend"
             android:layout_width="wrap_content"
             android:layout_height="?android:attr/actionBarSize"
-            android:background="@drawable/friend"
-            android:layout_marginBottom="20dp" />
+            android:background="@drawable/button_white"
+            android:text="@string/playwithFriend"
+            android:layout_marginBottom="15dp" />
 
         <Button
             android:id="@+id/button_playw_random"
             android:layout_width="wrap_content"
             android:layout_height="?android:attr/actionBarSize"
-            android:background="@drawable/random"
-            android:layout_marginBottom="20dp" />
+            android:background="@drawable/button_white"
+            android:text="@string/playwithrandom"
+            android:layout_marginBottom="15dp" />
 
         <Button
             android:id="@+id/button_stats"
             android:layout_width="wrap_content"
             android:layout_height="?android:attr/actionBarSize"
-            android:background="@drawable/stats"
-            android:layout_marginBottom="20dp" />
+            android:background="@drawable/button_white"
+            android:text="@string/statistic"
+            android:layout_marginBottom="15dp" />
 
         <Button
             android:id="@+id/button_rules"
             android:layout_width="wrap_content"
             android:layout_height="?android:attr/actionBarSize"
-            android:background="@drawable/rules"
-            android:layout_marginBottom="20dp" />
+            android:background="@drawable/button_white"
+            android:text="@string/rules"
+            android:layout_marginBottom="15dp" />
 
     </LinearLayout>
 

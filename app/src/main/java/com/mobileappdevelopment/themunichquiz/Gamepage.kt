@@ -12,16 +12,15 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.mobileappdevelopment.themunichquiz.model.Game
-import com.mobileappdevelopment.themunichquiz.model.GamesReference
-import com.mobileappdevelopment.themunichquiz.model.Question
-import kotlinx.android.synthetic.main.activity_gamepage.view.*
+import com.google.firebase.database.ktx.getValue
+import com.mobileappdevelopment.themunichquiz.model.*
 import kotlinx.android.synthetic.main.fragment_gamepage.view.*
 
 class Gamepage : Fragment() {
     lateinit var fd: FirebaseDatabase
     lateinit var auth: FirebaseAuth
     lateinit var dr: DatabaseReference
+    val player = "playerOne"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,11 +37,24 @@ class Gamepage : Fragment() {
         // Create view
         val view = inflater.inflate(R.layout.fragment_gamepage, container, false)
 
+        var userIds: ArrayList<String> = arrayListOf()
+
+        dr.child("users").addListenerForSingleValueEvent( object: ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                Log.d("key", snapshot.key.toString())
+                userIds.add(snapshot.key.toString())
+            }
+        })
+
         if(requireArguments().getString("gameKey") != null) {
             gameId = requireArguments().getString("gameKey")!!
         } else if (requireArguments().getString("opponentId") != null) {
             val pushedGameReference: DatabaseReference = dr.child("games").push()
-            pushedGameReference.setValue(Game(questions = listOf(1, 2, 3, 4), playerOne = auth.uid!!, playerTwo = requireArguments().getString("opponentId")!!))
+            pushedGameReference.setValue(Game(questions = listOf(1, 2, 3, 4), playerOne = Player(userId = auth.uid!!), playerTwo = Player(userId = requireArguments().getString("opponentId")!!)))
             val pusehdOngoingGamesReference: DatabaseReference = dr.child("users").child(auth.uid!!).child("ongoingGames").push()
             val pusehdOngoingGamesOpponentReference: DatabaseReference = dr.child("users").child(requireArguments().getString("opponentId")!!).child("ongoingGames").push()
             gameId = pushedGameReference.key!!
@@ -50,7 +62,7 @@ class Gamepage : Fragment() {
             pusehdOngoingGamesOpponentReference.setValue(GamesReference(gameId))
         } else {
             val pushedGameReference: DatabaseReference = dr.child("games").push()
-            pushedGameReference.setValue(Game(questions = listOf(1, 2, 3, 4), playerOne = auth.uid!!, playerTwo = "Random Player"))
+            pushedGameReference.setValue(Game(questions = listOf(1, 2, 3, 4), playerOne = Player(userId = auth.uid!!), playerTwo = Player(userId = userIds.shuffled()[0])))
             val pusehdOngoingGamesReference: DatabaseReference = dr.child("users").child(auth.uid!!).child("ongoingGames").push()
             val pusehdOngoingGamesOpponentReference: DatabaseReference = dr.child("users").child("Random Player").child("ongoingGames").push()
             gameId = pushedGameReference.key!!
@@ -59,7 +71,7 @@ class Gamepage : Fragment() {
         }
 
         // Set event listener to current question
-        dr.child("games").child(gameId).child("currentQuestion").addValueEventListener(object: ValueEventListener {
+        dr.child("games").child(gameId).child(player).child("currentQuestion").addValueEventListener(object: ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
@@ -126,7 +138,7 @@ class Gamepage : Fragment() {
     }
 
     fun increasePlayerScore(gameId: String) {
-        val currentScoreRef = dr.child("games").child(gameId).child("playerOneScore")
+        val currentScoreRef = dr.child("games").child(gameId).child(player).child("score")
 
         currentScoreRef.runTransaction(object : Transaction.Handler {
             override fun doTransaction(mutableData: MutableData): Transaction.Result {
@@ -154,7 +166,7 @@ class Gamepage : Fragment() {
     }
 
     fun goToNextQuestion(gameId: String, view: View) {
-        val currentQuestionRef = dr.child("games").child(gameId).child("currentQuestion")
+        val currentQuestionRef = dr.child("games").child(gameId).child(player).child("currentQuestion")
 
         currentQuestionRef.runTransaction(object : Transaction.Handler {
             override fun doTransaction(mutableData: MutableData): Transaction.Result {
@@ -164,7 +176,7 @@ class Gamepage : Fragment() {
                 if (p != null && p<3) {
                     p += 1
                 } else if(p != null) {
-                    val bundle = bundleOf("gameKey" to gameId)
+                    val bundle = bundleOf("gameKey" to gameId, "player" to player)
                     view.findNavController().navigate(R.id.action_gamepage_to_resultFragment, bundle)
                 }
 
