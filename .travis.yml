@@ -39,6 +39,8 @@ before_script:
 script:
   - ./gradlew installDebug connectedAndroidTest
   - ./gradlew assembleDebug
+  - ./gradlew connectedCheck
+  - bash <(curl -s https://codecov.io/bash)
 
 deploy:
   provider: releases
