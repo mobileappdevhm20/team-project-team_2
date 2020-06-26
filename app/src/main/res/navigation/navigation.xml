@@ -48,6 +48,20 @@
         <action
             android:id="@+id/action_lobbyFragment_to_gamepage"
             app:destination="@id/gamepage" />
+        <action
+            android:id="@+id/action_lobbyFragment_to_ongoing_games"
+            app:destination="@id/ongoingGamesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ongoingGamesFragment"
+        android:name="com.mobileappdevelopment.themunichquiz.OngoingGamesFragment"
+        android:label="OngoingGamesFragment" >
+        <action
+            android:id="@+id/action_ongoingGamesFragment_to_lobbyFragment"
+            app:destination="@id/lobbyFragment" />
+        <action
+            android:id="@+id/action_ongoingGamesFragment_to_gameFragment"
+            app:destination="@id/gamepage" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -60,6 +74,15 @@
             android:id="@+id/action_resultFragment_to_lobbyFragment"
             app:destination="@id/lobbyFragment"
             app:popUpTo="@id/loginFragment" />
+        <argument
+            android:name="gameKey"
+            app:argType="string" />
+        <argument
+            android:name="player"
+            app:argType="string" />
+        <argument
+            android:name="ongoingGameKey"
+            app:argType="string"/>
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"
@@ -81,6 +104,10 @@
         <action
             android:id="@+id/action_playWithFriendFragment_to_lobbyFragment"
             app:destination="@id/lobbyFragment"
+            app:popUpTo="@id/loginFragment" />
+        <action
+            android:id="@+id/action_playWithFriendFragment_to_gameFragment"
+            app:destination="@+id/gamepage"
             app:popUpTo="@id/loginFragment" />
     </fragment>
     <fragment
@@ -133,5 +160,14 @@
         <action
             android:id="@+id/action_gamepage_to_resultFragment"
             app:destination="@id/resultFragment" />
+        <argument
+            android:name="gameKey"
+            app:argType="string" />
+        <argument
+            android:name="opponentId"
+            app:argType="string" />
+        <argument
+            android:name="player"
+            app:argType="integer" />
     </fragment>
 </navigation>

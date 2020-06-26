@@ -16,7 +16,7 @@
             android:id="@+id/imageView12"
             android:layout_width="499dp"
             android:layout_height="754dp"
-            app:srcCompat="@drawable/backgroundimage" />
+            app:srcCompat="@drawable/background" />
 
         <ImageView
             android:id="@+id/imageView9"
@@ -93,11 +93,11 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/imageButton20"
-            android:layout_width="133dp"
-            android:layout_height="110dp"
-            android:background="@android:drawable/screen_background_light_transparent"
-            app:srcCompat="?attr/actionModeCloseDrawable" />
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/ic_arrow_back_black_24dp" />
 
     </FrameLayout>
 
