@@ -40,12 +40,6 @@ class LobbyFragmentTest {
         assertEquals(navController.currentDestination?.id, R.id.playWithFriendFragment)
     }
     @Test
-    fun testPlayWithRandomButton() {
-        onView(withId(R.id.button_playw_random))
-            .perform(click())
-        assertEquals(navController.currentDestination?.id, R.id.gamepage)
-    }
-    @Test
     fun testShowStatisticsButton() {
         onView(withId(R.id.button_stats))
             .perform(click())
