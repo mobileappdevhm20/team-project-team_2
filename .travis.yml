@@ -38,7 +38,7 @@ before_script:
 
 script:
   - ./gradlew installDebug connectedAndroidTest
-  - ./gradlew build jacocoTestReport assembleAndroidTest
+  - ./gradlew build assembleAndroidTest
   - ./gradlew connectedCheck
   - bash <(curl -s https://codecov.io/bash)
 
