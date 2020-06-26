@@ -27,9 +27,9 @@ class ResultFragment : Fragment() {
 
         val gameKey = requireArguments().getString("gameKey")!!
         val player = requireArguments().getString("player")!!
+        val ongoingGameKey = requireArguments().getString("ongoingGameKey")!!
         var scoreUpdated = false
-        var yourCorrectAnswers = -1
-        var opponnentCorrectAnswers = -1
+        var yourCorrectAnswers:Int?
 
         dr.child("games").child(gameKey).child(player).child("score").addValueEventListener(object: ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
@@ -37,13 +37,17 @@ class ResultFragment : Fragment() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-                yourCorrectAnswers = snapshot.getValue(Int::class.java) as Int
+                yourCorrectAnswers = snapshot.getValue(Int::class.java)
                 view.yourCorrectAnswers.text = yourCorrectAnswers.toString()
-                view.opponentCorrectAnswers.text = (4-yourCorrectAnswers).toString()
+                if(yourCorrectAnswers is Int) {
+                    view.opponentCorrectAnswers.text = (4 - yourCorrectAnswers!!).toString()
+                }
             }
         }
         )
-        dr.child("users").child(auth.uid!!).child("ongoingGames").child(gameKey).child("completed").setValue(true)
+        dr.child("users").child(auth.uid!!).child("ongoingGames").child(ongoingGameKey).child("completed").setValue(true)
+
+        updatePlayerScore(3, 1)
 
         view.button_statt.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_resultFragment_to_statisticsFragment)

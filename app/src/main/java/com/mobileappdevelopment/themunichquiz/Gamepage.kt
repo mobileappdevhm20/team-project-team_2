@@ -20,7 +20,8 @@ class Gamepage : Fragment() {
     lateinit var fd: FirebaseDatabase
     lateinit var auth: FirebaseAuth
     lateinit var dr: DatabaseReference
-    val player = "playerOne"
+    var player = "playerOne"
+    var ongoingGameKey: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,22 +53,29 @@ class Gamepage : Fragment() {
 
         if(requireArguments().getString("gameKey") != null) {
             gameId = requireArguments().getString("gameKey")!!
+            ongoingGameKey = requireArguments().getString("ongoingGameKey")!!
+            if(requireArguments().getInt("player") == 2) {
+                player = "playerTwo"
+            }
         } else if (requireArguments().getString("opponentId") != null) {
             val pushedGameReference: DatabaseReference = dr.child("games").push()
             pushedGameReference.setValue(Game(questions = listOf(1, 2, 3, 4), playerOne = Player(userId = auth.uid!!), playerTwo = Player(userId = requireArguments().getString("opponentId")!!)))
             val pusehdOngoingGamesReference: DatabaseReference = dr.child("users").child(auth.uid!!).child("ongoingGames").push()
+            ongoingGameKey = pusehdOngoingGamesReference.key!!
             val pusehdOngoingGamesOpponentReference: DatabaseReference = dr.child("users").child(requireArguments().getString("opponentId")!!).child("ongoingGames").push()
             gameId = pushedGameReference.key!!
-            pusehdOngoingGamesReference.setValue(GamesReference(gameId))
-            pusehdOngoingGamesOpponentReference.setValue(GamesReference(gameId))
+            pusehdOngoingGamesReference.setValue(GamesReference(gameId = gameId, player = 1))
+            pusehdOngoingGamesOpponentReference.setValue(GamesReference(gameId = gameId, player = 2))
         } else {
+            val p2 = Player(userId = userIds.shuffled()[0])
             val pushedGameReference: DatabaseReference = dr.child("games").push()
-            pushedGameReference.setValue(Game(questions = listOf(1, 2, 3, 4), playerOne = Player(userId = auth.uid!!), playerTwo = Player(userId = userIds.shuffled()[0])))
+            pushedGameReference.setValue(Game(questions = listOf(1, 2, 3, 4), playerOne = Player(userId = auth.uid!!), playerTwo = p2))
             val pusehdOngoingGamesReference: DatabaseReference = dr.child("users").child(auth.uid!!).child("ongoingGames").push()
-            val pusehdOngoingGamesOpponentReference: DatabaseReference = dr.child("users").child("Random Player").child("ongoingGames").push()
+            ongoingGameKey = pusehdOngoingGamesReference.key!!
+            val pusehdOngoingGamesOpponentReference: DatabaseReference = dr.child("users").child(p2.userId).child("ongoingGames").push()
             gameId = pushedGameReference.key!!
-            pusehdOngoingGamesReference.setValue(GamesReference(gameId))
-            pusehdOngoingGamesOpponentReference.setValue(GamesReference(gameId))
+            pusehdOngoingGamesReference.setValue(GamesReference(gameId = gameId, player = 1))
+            pusehdOngoingGamesOpponentReference.setValue(GamesReference(gameId = gameId, player = 2))
         }
 
         // Set event listener to current question
@@ -176,7 +184,7 @@ class Gamepage : Fragment() {
                 if (p != null && p<3) {
                     p += 1
                 } else if(p != null) {
-                    val bundle = bundleOf("gameKey" to gameId, "player" to player)
+                    val bundle = bundleOf("gameKey" to gameId, "player" to player, "ongoingGameKey" to ongoingGameKey)
                     view.findNavController().navigate(R.id.action_gamepage_to_resultFragment, bundle)
                 }
 

@@ -10,15 +10,15 @@ import com.mobileappdevelopment.themunichquiz.model.GamesReference
 import kotlinx.android.synthetic.main.friends.view.*
 import kotlinx.android.synthetic.main.ongoinggames.view.*
 
-class OnGoingGameAdapter(var Games : List<GamesReference>) :
+class OnGoingGameAdapter(var Games : List<Pair<String, GamesReference>>) :
     RecyclerView.Adapter<OnGoingGameAdapter.OnGoingGameViewHolder>() {
 
         class OnGoingGameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-            fun bind(game: GamesReference) {
-                itemView.games.text = game.gameId
+            fun bind(game: Pair<String, GamesReference>) {
+                itemView.games.text = game.second.gameId
                 itemView.games.setOnClickListener { view ->
-                    val bundle = bundleOf("gameKey" to game.gameId)
+                    val bundle = bundleOf("gameKey" to game.second.gameId, "ongoingGameKey" to game.first, "player" to game.second.player)
                     view.findNavController().navigate(R.id.action_ongoingGamesFragment_to_gameFragment, bundle)
                 }
             }

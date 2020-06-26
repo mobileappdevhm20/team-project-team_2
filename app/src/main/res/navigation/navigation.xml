@@ -80,6 +80,9 @@
         <argument
             android:name="player"
             app:argType="string" />
+        <argument
+            android:name="ongoingGameKey"
+            app:argType="string"/>
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"
@@ -163,5 +166,8 @@
         <argument
             android:name="opponentId"
             app:argType="string" />
+        <argument
+            android:name="player"
+            app:argType="integer" />
     </fragment>
 </navigation>

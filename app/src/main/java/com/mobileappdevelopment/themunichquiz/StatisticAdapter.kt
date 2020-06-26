@@ -16,7 +16,7 @@ class StatisticAdapter (var stats: List<User>) :
     class StatsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(statistic: User) {
-            itemView.gamestatistic.text = statistic.score.toString()
+            itemView.gamestatistic.text = statistic.email + ": " + statistic.score.toString()
         }
     }
 

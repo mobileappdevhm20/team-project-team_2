@@ -56,23 +56,35 @@ class OngoingGamesFragment: Fragment() {
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
                 Log.d("onChildChanged", snapshot.toString())
-                ongoingGames[ongoingGamesId.indexOf(snapshot.key.toString())] = snapshot.getValue<GamesReference>()!!
-                adapter = OnGoingGameAdapter(ongoingGames)
-                mainMenu.adapter = adapter
+                val g = snapshot.getValue<GamesReference>()!!
+                if (!g.completed) {
+                    ongoingGames[ongoingGamesId.indexOf(snapshot.key.toString())] = g
+                    adapter = OnGoingGameAdapter(ongoingGamesId zip ongoingGames)
+                    mainMenu.adapter = adapter
+                } else {
+                    val ongoingGamesIndex = ongoingGamesId.indexOf(snapshot.key.toString())
+                    ongoingGames.removeAt(ongoingGamesIndex)
+                    adapter = OnGoingGameAdapter(ongoingGamesId zip ongoingGames)
+                    mainMenu.adapter = adapter
+                }
             }
 
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 Log.d("onChildAdded", snapshot.toString())
-                ongoingGamesId.add(snapshot.key.toString())
-                ongoingGames.add(snapshot.getValue<GamesReference>()!!)
-                adapter = OnGoingGameAdapter(ongoingGames)
-                mainMenu.adapter = adapter            }
+                val g = snapshot.getValue<GamesReference>()!!
+                if (!g.completed) {
+                    ongoingGamesId.add(snapshot.key.toString())
+                    ongoingGames.add(g)
+                    adapter = OnGoingGameAdapter(ongoingGamesId zip ongoingGames)
+                    mainMenu.adapter = adapter
+                }
+            }
 
             override fun onChildRemoved(snapshot: DataSnapshot) {
                 Log.d("onChildRemoved", snapshot.toString())
                 val ongoingGamesIndex = ongoingGamesId.indexOf(snapshot.key.toString())
                 ongoingGames.removeAt(ongoingGamesIndex)
-                adapter = OnGoingGameAdapter(ongoingGames)
+                adapter = OnGoingGameAdapter(ongoingGamesId zip ongoingGames)
                 mainMenu.adapter = adapter            }
 
         })
