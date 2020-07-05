@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.activity_settings.view.*
+import kotlinx.android.synthetic.main.fragment_statistics.view.*
 import kotlinx.android.synthetic.main.rules.view.*
 
 class SettingsFragment : Fragment() {
@@ -17,7 +18,7 @@ class SettingsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.activity_settings, container, false)
 
-        view.back.setOnClickListener { view ->
+        view.button_backfromsett.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_settingsFragment2_to_lobbyFragment)
         }
 

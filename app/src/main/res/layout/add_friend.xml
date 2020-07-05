@@ -20,25 +20,51 @@
         android:background="@drawable/logo"
         />
 
-    <View
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/ic_arrow_back_black_24dp" />
-
-    <View
-        android:id="@+id/back_button"
+    <ImageView
+        android:id="@+id/btn_capture_photo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:background="@drawable/rounded_corner"/>
+        android:layout_margin="20dp"
+        android:src="@drawable/rectangle"
+        android:contentDescription="@string/rectangle"
+        />
+
+    <Button
+        android:id="@+id/button_backfromaddfr"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="40dp"
+        android:background="@drawable/ic_arrow_back_black_24dp" />
+
+    <TextView
+        android:id="@+id/statistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/roboto_mono_medium"
+        android:text="@string/add_a_friend"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:gravity="top"
+        />
+
 
     <View
-        android:layout_width="162dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="140dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginStart="50dp"
         android:background="@drawable/ic_add_black_24dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:orientation="vertical">
 
     <EditText
         android:id="@+id/text_username"
@@ -50,6 +76,7 @@
         android:background="@drawable/button_white"
         android:hint="@string/username"
         android:inputType="text"
+        android:gravity="center"
         android:padding="10dp" />
 
     <Button
@@ -57,12 +84,12 @@
         android:layout_gravity="bottom"
         android:layout_width="wrap_content"
         android:layout_height="?android:attr/actionBarSize"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="30dp"
+        android:layout_margin="10dp"
         android:background="@drawable/button_black"
         android:text="@string/add"
         android:textColor="#ffffff" />
+
+    </LinearLayout>
 
 
 </FrameLayout>

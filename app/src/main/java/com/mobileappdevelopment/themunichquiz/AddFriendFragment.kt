@@ -31,7 +31,7 @@ class AddFriendFragment : Fragment(){
 
         val view = inflater.inflate(R.layout.add_friend, container, false)
 
-        view.back_button.setOnClickListener { view ->
+        view.button_backfromaddfr.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_addFriendFragment_to_lobbyFragment)
         }
 

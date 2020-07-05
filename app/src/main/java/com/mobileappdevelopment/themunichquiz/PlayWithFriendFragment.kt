@@ -84,7 +84,7 @@ class PlayWithFriendFragment : Fragment() {
 
         })
 
-        view.backButton.setOnClickListener { view ->
+        view.button_backfromplaywfr.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_playWithFriendFragment_to_lobbyFragment)
         }
 

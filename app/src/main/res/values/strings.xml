@@ -3,7 +3,7 @@
     <string name="account">Account</string>
     <string name="notifications">Notifications</string>
     <string name="privacyandsecurity">Privacy and Security</string>
-    <string name="settings">Settings</string>
+    <string name="settings">SETTINGS</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="log_in">Log in</string>
@@ -11,22 +11,19 @@
     <string name="background">background</string>
     <string name="add">add</string>
     <string name="rules_text">Welcome to the Munich Quiz!\n\nHere are the rules:\n\n- you can play against one player\n\n-both players get the same questions\n\n- the player with the most correct answers wins the game\n\n- if the players have the same number of correct questions, both get a point\n\nEnjoy!</string>
-    <string name="rules">Rules</string>
+    <string name="rules">RULES</string>
     <string name="statistic">statistics</string>
     <string name="start">START</string>
     <string name="logo">logo</string>
     <string name="stats">Stats</string>
     <string name="rectangle">Rectangle</string>
     <string name="statistics">STATISTICS</string>
-
     <string name="addafriend">Add A Friend</string>
     <string name="playwithFriend">Play With A Friend</string>
     <string name="playwithrandom">Play With A Random Player</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="choose_a_friend">CHOOSE A FRIEND</string>
     <string name="email">E-Mail</string>
     <string name="ongoing_games">ONGOING GAMES</string>
+    <string name="back_to_lobby">Back to Lobby</string>
+    <string name="add_a_friend">ADD A FRIEND</string>
 </resources>

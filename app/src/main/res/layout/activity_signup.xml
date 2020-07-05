@@ -12,16 +12,18 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="554dp"
-            android:layout_height="840dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
             app:srcCompat="@drawable/background" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/logo"
             android:layout_width="323dp"
-            android:layout_height="457dp"
-            app:srcCompat="@drawable/logo"
-            tools:ignore="VectorDrawableCompat" />
+            android:layout_height="323dp"
+            android:layout_marginTop="?android:attr/actionBarSize"
+            android:background="@drawable/logo"
+            android:contentDescription="@string/logo"/>
 
         <View
             android:id="@+id/backbutton"
@@ -31,9 +33,12 @@
             android:background="@drawable/ic_arrow_back_black_24dp"/>
 
         <LinearLayout
-            android:layout_width="388dp"
-            android:layout_height="415dp"
-            android:layout_gravity="bottom|center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="110dp"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <EditText
@@ -45,6 +50,7 @@
                 android:padding="10dp"
                 android:hint="@string/email"
                 android:inputType="text"
+                android:gravity="center"
                 android:autofillHints="@string/email" />
 
             <EditText
@@ -56,6 +62,7 @@
                 android:layout_margin="10dp"
                 android:hint="@string/password"
                 android:inputType="textPassword"
+                android:gravity="center"
                 android:autofillHints="@string/password" />
 
             <EditText
@@ -67,6 +74,7 @@
                 android:layout_margin="10dp"
                 android:hint="@string/password"
                 android:inputType="textPassword"
+                android:gravity="center"
                 android:autofillHints="@string/password" />
 
             <Button
