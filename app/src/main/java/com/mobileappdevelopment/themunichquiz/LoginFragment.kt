@@ -32,18 +32,25 @@ class LoginFragment : Fragment() {
         auth = Firebase.auth
 
         view.button_login.setOnClickListener { view->
+
+            button_login.startAnimation()
+
             val username = text_username.text.toString()
             val password = text_password.text.toString()
 
             if(username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(context, "Please enter username and password!", Toast.LENGTH_LONG).show()
+                button_login.revertAnimation()
             } else {
                 auth.signInWithEmailAndPassword(username, password)
                     .addOnCompleteListener(requireActivity()){task->
                         if (task.isSuccessful) {
+                            ///button_login.doneLoadingAnimation(Color.BLACK, )
+                            button_login.stopAnimation()
                             Log.d("UID", auth.uid)
                             view.findNavController().navigate(R.id.action_loginFragment_to_lobbyFragment)
                         } else {
+                            button_login.revertAnimation()
                             Toast.makeText(context, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show()
                         }
