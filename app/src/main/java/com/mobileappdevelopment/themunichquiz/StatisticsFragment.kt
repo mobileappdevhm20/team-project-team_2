@@ -39,7 +39,7 @@ class StatisticsFragment : Fragment() {
         mainMenu.layoutManager = LinearLayoutManager(context)
         mainMenu.adapter = adapter
 
-        view.backButton.setOnClickListener { view ->
+        view.button_backfromfrag.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_statisticsFragment_to_lobbyFragment)
         }
 

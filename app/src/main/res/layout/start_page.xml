@@ -19,7 +19,7 @@
     <View
         android:id="@+id/logo"
         android:layout_width="498dp"
-        android:layout_height="405dp"
+        android:layout_height="498dp"
         android:layout_gravity="center"
         android:background="@drawable/logo2" />
 

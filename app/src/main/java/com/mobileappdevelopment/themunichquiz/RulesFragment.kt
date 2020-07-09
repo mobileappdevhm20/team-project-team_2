@@ -20,13 +20,10 @@ class RulesFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.rules, container, false)
 
-        view.button_back.setOnClickListener { view ->
+        view.button_backfromrules.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_rulesFragment_to_lobbyFragment)
         }
 
-        view.button_settings.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_rulesFragment_to_settingsFragment2)
-        }
 
         return view
     }

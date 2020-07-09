@@ -89,7 +89,7 @@ class OngoingGamesFragment: Fragment() {
 
         })
 
-        view.backButton.setOnClickListener { view ->
+        view.button_backfromongoin.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_ongoingGamesFragment_to_lobbyFragment)
         }
 

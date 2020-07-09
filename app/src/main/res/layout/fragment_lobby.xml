@@ -33,10 +33,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center|bottom"
+        android:layout_gravity="center"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="50dp">
+        android:layout_marginTop="110dp">
 
         <Button
             android:id="@+id/button_ongoinggames"
@@ -58,9 +58,9 @@
             android:id="@+id/button_playw_friend"
             android:layout_width="wrap_content"
             android:layout_height="?android:attr/actionBarSize"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/button_white"
-            android:text="@string/playwithFriend"
-            android:layout_marginBottom="15dp" />
+            android:text="@string/playwithFriend" />
 
         <Button
             android:id="@+id/button_playw_random"

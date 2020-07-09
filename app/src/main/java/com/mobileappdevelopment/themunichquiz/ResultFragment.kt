@@ -52,7 +52,7 @@ class ResultFragment : Fragment() {
         view.button_statt.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_resultFragment_to_statisticsFragment)
         }
-        view.back.setOnClickListener { view ->
+        view.button_lobby.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_resultFragment_to_lobbyFragment)
         }
         return view
