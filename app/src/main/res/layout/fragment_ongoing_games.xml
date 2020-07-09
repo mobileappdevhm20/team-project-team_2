@@ -52,8 +52,10 @@
         android:id="@+id/recyclerViewongoingGames"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_gravity="bottom"
-        android:layout_margin="25dp">
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="110dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
