@@ -1,6 +1,7 @@
 # The Munich Quiz
 [![Build Status](https://travis-ci.com/mobileappdevhm20/team-project-team_2.svg?token=5JBSrPqszVfeAgbcyYMP&branch=master)](https://travis-ci.com/mobileappdevhm20/team-project-team_2)
 [![codecov](https://codecov.io/gh/mobileappdevhm20/team-project-team_2/branch/master/graph/badge.svg)](https://codecov.io/gh/mobileappdevhm20/team-project-team_2)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mobileappdevhm20_team-project-team_2&metric=alert_status)](https://sonarcloud.io/dashboard?id=mobileappdevhm20_team-project-team_2)
 
 ## Description
 Want to have fun with your friends during the lockdown? Download "The Munich Quiz" and compete in answering questions about Munich online!
