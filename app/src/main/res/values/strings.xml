@@ -26,4 +26,10 @@
     <string name="ongoing_games">ONGOING GAMES</string>
     <string name="back_to_lobby">Back to Lobby</string>
     <string name="add_a_friend">ADD A FRIEND</string>
+    <string name="question">Question</string>
+    <string name="first_answer">first answer</string>
+    <string name="second_answer">second answer</string>
+    <string name="third_answer">third answer</string>
+    <string name="fourth_answer">fourth answer</string>
+    <string name="icon">icon</string>
 </resources>

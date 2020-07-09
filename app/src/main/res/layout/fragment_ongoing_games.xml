@@ -48,6 +48,14 @@
         android:textColor="#000000"
         android:textSize="20sp" />
 
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginStart="50dp"
+        android:src="@drawable/ongoinggames"
+        android:contentDescription="@string/icon" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewongoingGames"
         android:layout_width="match_parent"

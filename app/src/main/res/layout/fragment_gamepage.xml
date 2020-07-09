@@ -38,9 +38,10 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/button_black"
             android:textColor="#FFFFFF"
-            android:textSize="20dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
             android:gravity="center"
-            android:hint="Question"/>
+            android:hint="@string/question"/>
 
         <Button
             android:id="@+id/answer1"
@@ -48,7 +49,7 @@
             android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/button_white"
             android:layout_margin="10dp"
-            android:hint="first answer"/>
+            android:hint="@string/first_answer"/>
 
         <Button
             android:id="@+id/answer2"
@@ -56,7 +57,7 @@
             android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/button_white"
             android:layout_margin="10dp"
-            android:hint="second answer"/>
+            android:hint="@string/second_answer"/>
 
         <Button
             android:id="@+id/answer3"
@@ -64,7 +65,7 @@
             android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/button_white"
             android:layout_margin="10dp"
-            android:hint="third answer"/>
+            android:hint="@string/third_answer"/>
 
         <Button
             android:id="@+id/answer4"
@@ -72,7 +73,7 @@
             android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/button_white"
             android:layout_margin="10dp"
-            android:hint="fourth answer"/>
+            android:hint="@string/fourth_answer"/>
     </LinearLayout>
 
 </FrameLayout>
