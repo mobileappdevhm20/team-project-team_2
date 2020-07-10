@@ -1,5 +1,6 @@
 package com.mobileappdevelopment.themunichquiz
 
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.renderscript.Sampler
@@ -178,6 +179,7 @@ class Gamepage : Fragment() {
 
         currentQuestionRef.runTransaction(object : Transaction.Handler {
             override fun doTransaction(mutableData: MutableData): Transaction.Result {
+                var mediaPlayer: MediaPlayer? = MediaPlayer.create(context, R.raw.results)
                 var p = mutableData.getValue(Int::class.java)
                     ?: return Transaction.success(mutableData)
 
@@ -185,6 +187,7 @@ class Gamepage : Fragment() {
                     p += 1
                 } else if(p != null) {
                     val bundle = bundleOf("gameKey" to gameId, "player" to player, "ongoingGameKey" to ongoingGameKey)
+                    mediaPlayer?.start()
                     view.findNavController().navigate(R.id.action_gamepage_to_resultFragment, bundle)
                 }
 

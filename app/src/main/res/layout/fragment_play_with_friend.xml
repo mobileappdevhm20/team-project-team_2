@@ -52,10 +52,10 @@
 
     <ImageView
         android:layout_width="80dp"
-        android:layout_height="74dp"
+        android:layout_height="80dp"
         android:layout_marginTop="170dp"
         android:layout_marginStart="50dp"
-        android:src="@drawable/playwithafriend"
+        android:src="@drawable/play_friend"
         android:contentDescription="@string/stats"
         />
 
@@ -63,8 +63,10 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_gravity="bottom"
-        android:layout_margin="25dp">
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="110dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 

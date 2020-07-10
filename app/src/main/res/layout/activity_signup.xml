@@ -15,7 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/background" />
+            app:srcCompat="@drawable/background"
+            android:contentDescription="@string/background" />
 
         <ImageView
             android:id="@+id/logo"
@@ -48,10 +49,12 @@
                 android:background="@drawable/button_white"
                 android:layout_margin="10dp"
                 android:padding="10dp"
+                android:drawableStart="@drawable/ic_person_black_24dp"
+                android:drawablePadding="12dp"
                 android:hint="@string/email"
                 android:inputType="text"
-                android:gravity="center"
-                android:autofillHints="@string/email" />
+                android:autofillHints="@string/email"
+                tools:ignore="TextFields" />
 
             <EditText
                 android:id="@+id/text_password"
@@ -59,10 +62,11 @@
                 android:layout_height="?android:attr/actionBarSize"
                 android:background="@drawable/button_white"
                 android:padding="10dp"
+                android:drawableStart="@drawable/ic_lock_outline_black_24dp"
+                android:drawablePadding="12dp"
                 android:layout_margin="10dp"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:gravity="center"
                 android:autofillHints="@string/password" />
 
             <EditText
@@ -72,9 +76,10 @@
                 android:background="@drawable/button_white"
                 android:padding="10dp"
                 android:layout_margin="10dp"
+                android:drawableStart="@drawable/ic_lock_outline_black_24dp"
+                android:drawablePadding="12dp"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:gravity="center"
                 android:autofillHints="@string/password" />
 
             <Button
@@ -84,6 +89,7 @@
                 android:background="@drawable/button_black"
                 android:layout_margin="10dp"
                 android:text="@string/sign_up"
+                android:textStyle="bold"
                 android:textColor="#ffffff" />
 
         </LinearLayout>
